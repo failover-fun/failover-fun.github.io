@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on </title>
+    <link>https://failover-fun.github.io/categories/</link>
+    <description>Recent content in Categories on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-ch</language>
+    <lastBuildDate>Wed, 05 May 2021 15:23:01 +0900</lastBuildDate><atom:link href="https://failover-fun.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>shell</title>
+      <link>https://failover-fun.github.io/categories/shell/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover-fun.github.io/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://failover-fun.github.io/categories/tools/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover-fun.github.io/categories/tools/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

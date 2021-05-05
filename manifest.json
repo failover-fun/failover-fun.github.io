@@ -1,0 +1,15 @@
+{
+    "name": "Fi.",
+    "short_name": "Fi.",
+    "icons": [
+      {
+        "src": "./apple-touch-icon-144-precomposed.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "./index.html",
+    "display": "fullscreen",
+    "background_color": "#05aa55",
+    "theme_color": "#05aa55"
+  }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>asciinema on </title>
+    <link>https://failover-fun.github.io/tags/asciinema/</link>
+    <description>Recent content in asciinema on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-ch</language>
+    <lastBuildDate>Wed, 05 May 2021 15:23:01 +0900</lastBuildDate><atom:link href="https://failover-fun.github.io/tags/asciinema/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用asciinema录制终端</title>
+      <link>https://failover-fun.github.io/posts/using-ascinema-recording-terminal/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover-fun.github.io/posts/using-ascinema-recording-terminal/</guid>
+      <description>asciinema是一个非常有趣的工具。</description>
+    </item>
+    
+  </channel>
+</rss>
