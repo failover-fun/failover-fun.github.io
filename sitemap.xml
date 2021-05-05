@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://failover-fun.github.io/</loc>
+    <loc>https://failover.fun/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/tags/asciinema/</loc>
+    <loc>https://failover.fun/tags/asciinema/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/categories/</loc>
+    <loc>https://failover.fun/categories/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/posts/</loc>
+    <loc>https://failover.fun/posts/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/categories/shell/</loc>
+    <loc>https://failover.fun/categories/shell/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/tags/</loc>
+    <loc>https://failover.fun/tags/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/categories/tools/</loc>
+    <loc>https://failover.fun/categories/tools/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/posts/using-ascinema-recording-terminal/</loc>
+    <loc>https://failover.fun/posts/using-ascinema-recording-terminal/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover-fun.github.io/series/</loc>
+    <loc>https://failover.fun/series/</loc>
   </url>
 </urlset>
