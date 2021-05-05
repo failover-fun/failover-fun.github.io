@@ -16,5 +16,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Shell</title>
+      <link>https://failover.fun/tags/shell/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://failover.fun/tags/tools/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/tags/tools/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

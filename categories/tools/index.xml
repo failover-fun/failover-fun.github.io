@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tools on </title>
+    <title>Tools on </title>
     <link>https://failover.fun/categories/tools/</link>
-    <description>Recent content in tools on </description>
+    <description>Recent content in Tools on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
     <lastBuildDate>Wed, 05 May 2021 15:23:01 +0900</lastBuildDate><atom:link href="https://failover.fun/categories/tools/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,8 @@
       <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
       
       <guid>https://failover.fun/posts/using-ascinema-recording-terminal/</guid>
-      <description>asciinema是一个非常有趣的工具。</description>
+      <description>asciinema是一个非常有趣的工具。
+ 一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器   </description>
     </item>
     
   </channel>
