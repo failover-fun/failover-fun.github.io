@@ -9,12 +9,15 @@
     <lastBuildDate>Wed, 05 May 2021 15:23:01 +0900</lastBuildDate><atom:link href="https://failover.fun/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 开始使用（1/3）</title>
-      <link>https://failover.fun/posts/using-ascinema-recording-terminal/</link>
+      <link>https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-start-using-1/</link>
       <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/using-ascinema-recording-terminal/</guid>
-      <description>asciinema是一个非常有趣的工具。
- 一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器   </description>
+      <guid>https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-start-using-1/</guid>
+      <description>asciinema是一个非常有趣的轻量级终端录屏工具。它和其他录屏软件相比的话显著特点就是轻量级。
+正如它的名字asciinema。它使用字符来记录终端的输入和输出。而其他的录屏软件通常存储的是二进制（专有格式或MP4等）视频格式。
+asciinema由以下几部分组成：
+ 一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，asciinema有以下几个优点：
+ 使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不知之处：</description>
     </item>
     
   </channel>
