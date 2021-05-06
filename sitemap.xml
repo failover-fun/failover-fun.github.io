@@ -5,10 +5,13 @@
     <loc>https://failover.fun/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
+    <loc>https://failover.fun/series/asciinema/</loc>
+    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
+  </url><url>
     <loc>https://failover.fun/tags/asciinema/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover.fun/series/asciinema/</loc>
+    <loc>https://failover.fun/posts/using-ascinema-recording-terminal/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/categories/</loc>
@@ -33,9 +36,6 @@
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/categories/tools/</loc>
-    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/posts/using-ascinema-recording-terminal/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url>
 </urlset>
