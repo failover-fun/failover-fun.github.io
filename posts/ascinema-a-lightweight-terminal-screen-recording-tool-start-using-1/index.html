@@ -23,7 +23,7 @@ asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不知之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="30"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="46"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -310,10 +310,14 @@ asciinema由以下几部分组成：
 <script id="asciicast-335480" src="https://asciinema.org/a/335480.js" async></script><br>
 它的体验和视频录制软件没什么区别。播放、暂停、全屏、拖动进度条到某个时间点，甚至还可以复制播放器中的内容。</p>
 <h2 id="如何安装">如何安装</h2>
-<blockquote>
-<p>TODO</p>
-</blockquote>
-<h2 id="试试看">试试看</h2>
+<p>安装<a href="https://asciinema.org">asciinema</a>没有特殊的必要条件。因为<a href="https://asciinema.org">asciinema</a>使用<a href="https://www.python.org">Python</a>开发的，所以在你的系统中<a href="https://www.python.org">Python</a>环境是必须的。虽然官方并没有说明<a href="https://www.python.org">Python</a>的具体版本，我想<a href="https://www.python.org">Python3</a>应该是必须的。其他必要条件就是不支持<code>Windows</code>。再次强调<a href="https://asciinema.org">asciinema</a>不支持<code>Windows</code>。</p>
+<p>安装操作非常简单，官方有一个详细的<a href="https://asciinema.org/docs/installation">安装指南</a>。找到对应的操作系统，根据<a href="https://asciinema.org/docs/installation">安装指南</a>进行安装即可。</p>
+<p>比如在MacOS下使用<a href="https://brew.sh">Homebrew</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> brew install asciinema
+</code></pre></div><p>如果找不到对应的操作系统，可以使用PIP安装。官方文档在<a href="https://asciinema.org/docs/installation#installing-via-pip">Installing via Pip</a>部分说明了如何安装。</p>
+<p>还可以<a href="https://asciinema.org/docs/installation#running-in-docker-container">在Docker容器中运行</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> docker run --rm -ti -v <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.config/asciinema&#34;</span>:/root/.config/asciinema asciinema/asciinema
+</code></pre></div><h2 id="试试看">试试看</h2>
 <blockquote>
 <p>TODO</p>
 </blockquote>
