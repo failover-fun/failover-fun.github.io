@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="138"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="312"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -312,7 +312,7 @@ Asciinema由以下几部分组成：
 <h2 id="如何安装">如何安装</h2>
 <p>安装<a href="https://asciinema.org">Asciinema</a>没有特殊的必要条件。因为<a href="https://asciinema.org">Asciinema</a>使用<a href="https://www.python.org">Python</a>开发的，所以在你的系统中<a href="https://www.python.org">Python</a>环境是必须的。虽然官方并没有说明<a href="https://www.python.org">Python</a>的具体版本，我想<a href="https://www.python.org">Python3</a>应该是必须的。其他必要条件就是不支持<code>Windows</code>。再次强调<a href="https://asciinema.org">Asciinema</a>不支持<code>Windows</code>。</p>
 <p>安装操作非常简单，官方有一个详细的<a href="https://asciinema.org/docs/installation">安装指南</a>。找到对应的操作系统类型，根据<a href="https://asciinema.org/docs/installation">安装指南</a>进行安装即可。</p>
-<p>比如在<code>macOS</code>下使用<a href="https://brew.sh">Homebrew</a>:</p>
+<p>比如在<code>macOS</code>中，我使用<a href="https://brew.sh">Homebrew</a>安装:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -387,7 +387,7 @@ Asciinema由以下几部分组成：
 </div>
 </div><p>如果本机没有安装<a href="https://www.docker.com">Docker</a>环境，请参照<a href="https://www.docker.com">Docker</a>的官方文档。
 <a href="https://docs.docker.com/get-docker">安装Docker</a>和<a href="https://docs.docker.com/compose/install">Docker Compose</a>。</p>
-<p>将上面的内容为文件名为<code>docker-compose.yml</code>文件，执行以下命令运行:</p>
+<p>将上面的内容保存到名为<code>docker-compose.yml</code>的文件中，执行命令如下:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -405,7 +405,29 @@ Asciinema由以下几部分组成：
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose <span style="color:#8be9fd;font-style:italic">exec</span> asciinema /bin/bash
 </code></pre></td></tr></table>
 </div>
-</div><p>进入容器后，执行以下命令更新系统并安装一些相关的软件：</p>
+</div><p>进入容器后，启动<code>asciinema</code>开始录屏</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec
+</code></pre></td></tr></table>
+</div>
+</div><p><code>asciinema</code>会提示<code>cast</code>文件的临时存储位置和如何退出<code>asciinema</code>录屏。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@970c3b167b51:~# asciinema rec
+asciinema: recording asciicast to /tmp/tmppz9xa6fp-ascii.cast
+asciinema: press &lt;ctrl-d&gt; or <span style="color:#8be9fd;font-style:italic">type</span> <span style="color:#f1fa8c">&#34;exit&#34;</span> when you&#39;re <span style="color:#ff79c6">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>首先，执行以下命令更新系统并安装一些相关的软件：</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -418,7 +440,92 @@ Asciinema由以下几部分组成：
 </span><span style="color:#f1fa8c"></span>apt install -y curl less nano mysql-client htop
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="用法详解">用法详解</h2>
+</div><p>然后，依次实行以下命令查看效果：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># easy command</span>
+cat /etc/os-release
+<span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">`</span>date<span style="color:#f1fa8c">`</span>
+
+<span style="color:#6272a4"># pipeline command</span>
+curl https://swapi.dev/api/people/ | python3 -m json.tool | less
+
+<span style="color:#6272a4"># editor</span>
+nano test.txt
+
+<span style="color:#6272a4"># stdin password</span>
+mysql -h mysql -u root -p
+
+<span style="color:#6272a4"># the htop command</span>
+htop
+</code></pre></td></tr></table>
+</div>
+</div><p>输入<code>exit</code>退出<code>asciinema</code>录屏：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@970c3b167b51:~# <span style="color:#8be9fd;font-style:italic">exit</span>
+<span style="color:#8be9fd;font-style:italic">exit</span>
+asciinema: recording finished
+asciinema: press &lt;enter&gt; to upload to asciinema.org, &lt;ctrl-c&gt; to save locally
+<span style="color:#8be9fd;font-style:italic">exit</span>
+View the recording at:
+
+    https://asciinema.org/a/5wE9RRrFR3jK4ZUdaEMKPykv8
+
+This installation of asciinema recorder hasn&#39;t been linked to any asciinema.org
+account. All unclaimed recordings <span style="color:#ff79c6">(</span>from unknown installations like this one<span style="color:#ff79c6">)</span>
+are automatically archived <span style="color:#bd93f9">7</span> days after upload.
+
+If you want to preserve all recordings made on this machine, connect this
+installation with asciinema.org account by opening the following link:
+
+    https://asciinema.org/connect/ec162607-9181-4eec-b92f-7b3e4f7e5bba
+</code></pre></td></tr></table>
+</div>
+</div><p><code>asciinema</code>会有一个提示，是选择<code>&lt;enter&gt;</code>退出，还是<code>&lt;ctrl-c&gt;</code>退出。<br>
+如果直接<code>&lt;enter&gt;</code>退出的话，录屏文件将会无主的形式上传到<a href="https://asciinema.org">Asciinema</a>官网的仓库。直到通过提示的<code>链接</code>去认领，否则，7天之后将会自动归档。</p>
+<h3 id="总结">总结</h3>
+<p>一句话来总结就是：<code>Perfect!</code></p>
+<blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="用法详解">用法详解</h2>
 <blockquote>
 <p>TODO</p>
 </blockquote>
