@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="761"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="1004"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -927,14 +927,133 @@ ssh user@host cat asciicast.cast | asciinema cat -
 </div>
 </div><h3 id="auth子命令"><code>auth</code>子命令</h3>
 <hr>
-<p>将安装ID和<a href="https://asciinema.org">Asciinema</a>帐户相关联。</p>
-<blockquote>
-<p>TODO</p>
-</blockquote>
-<h2 id="配置文件说明">配置文件说明</h2>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<p>将安装ID和<a href="https://asciinema.org">Asciinema</a>仓库帐户相关联，并管理上传的<code>cast</code>文件。<br>
+当首次安装<a href="https://asciinema.org">Asciinema</a>时，会在<code>$HOME/.config/asciinema/install-id</code>生成一个<a href="https://en.wikipedia.org/wiki/Universally_unique_identifiers">UUID v4</a>文件。</p>
+<p>输入<code>asciinema auth</code>命令会得到如下输出:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜ asciinema auth
+Open the following URL in a web browser to link your install ID with your asciinema.org user account:
+
+https://asciinema.org/connect/9ca63656-f239-4f33-9784-768698ea1319
+
+This will associate all recordings uploaded from this machine <span style="color:#ff79c6">(</span>past and future ones<span style="color:#ff79c6">)</span> to your account, and allow you to manage them <span style="color:#ff79c6">(</span>change title/theme, delete<span style="color:#ff79c6">)</span> at asciinema.org.
+</code></pre></td></tr></table>
+</div>
+</div><p>通过访问上述的链接与仓库帐户相关联。之后，就可以将本地的<code>cast</code>文件通过<code>asciinema upload</code>命令进行上传。</p>
+<p>可以在仓库帐户的管理页面对<code>install-id</code>进行撤销处理。<br>
+此时<code>install-id</code>不能在和仓库账号相关联。如果想再次与仓库账号相关联，需要按照以下步骤进行:</p>
+<ol>
+<li>删除<code>$HOME/.config/asciinema/install-id</code>文件。</li>
+<li>执行<code>asciinema auth</code>命令重新与仓库账号关联。</li>
+</ol>
+<h2 id="配置文件">配置文件</h2>
+<p>可以为<a href="https://asciinema.org">Asciinema</a>提供一个<code>config</code>配置文件。
+将其存储到: <code>$HOME/.config/asciinema/config</code>。好处是为命令提供默认值。</p>
+<p>可以使用环境变量来更改存储路径。<br>
+使用<code>$ASCIINEMA_CONFIG_HOME</code>更改配置目录的位置。<br>
+如果环境变量设置<code>$XDG_CONFIG_HOME</code>，配置目录的位置将是：<code>$XDG_CONFIG_HOME/asciinema</code>。</p>
+<p>配置由<code>[api]</code>、<code>[record]</code>、<code>[play]</code>三段组成。</p>
+<h3 id="api"><code>[api]</code></h3>
+<hr>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#ff79c6">[api]</span>
+
+<span style="color:#6272a4">; API server URL, default: https://asciinema.org</span>
+<span style="color:#6272a4">; If you run your own instance of asciinema-server then set its address here</span>
+<span style="color:#6272a4">; It can also be overriden by setting ASCIINEMA_API_URL environment variable</span>
+<span style="color:#50fa7b">url</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">https://asciinema.example.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置<code>asciinema-server</code>服务器的地址。在搭建私服时，需要修改此属性。<br>
+可以在环境变量设置<code>ASCIINEMA_API_URL</code>来覆盖它。</p>
+<h3 id="record"><code>[record]</code></h3>
+<hr>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#ff79c6">[record]</span>
+
+<span style="color:#6272a4">; Command to record, default: $SHELL</span>
+<span style="color:#50fa7b">command</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">/bin/bash -l</span>
+
+<span style="color:#6272a4">; Enable stdin (keyboard) recording, default: no</span>
+<span style="color:#50fa7b">stdin</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">yes</span>
+
+<span style="color:#6272a4">; List of environment variables to capture, default: SHELL,TERM</span>
+<span style="color:#50fa7b">env</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">SHELL,TERM,USER</span>
+
+<span style="color:#6272a4">; Limit recorded terminal inactivity to max n seconds, default: off</span>
+<span style="color:#50fa7b">idle_time_limit</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">2</span>
+
+<span style="color:#6272a4">; Answer &#34;yes&#34; to all interactive prompts, default: no</span>
+<span style="color:#50fa7b">yes</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">true</span>
+
+<span style="color:#6272a4">; Be quiet, suppress all notices/warnings, default: no</span>
+<span style="color:#50fa7b">quiet</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置属性影响<code>asciinema rec</code>命令。</p>
+<h3 id="play"><code>[play]</code></h3>
+<hr>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#ff79c6">[play]</span>
+
+<span style="color:#6272a4">; Playback speed (can be fractional), default: 1</span>
+<span style="color:#50fa7b">speed</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">2</span>
+
+<span style="color:#6272a4">; Limit replayed terminal inactivity to max n seconds, default: off</span>
+<span style="color:#50fa7b">idle_time_limit</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置属性影响<code>asciinema play</code>命令。</p>
 <h2 id="分享cast">分享cast</h2>
 <blockquote>
 <p>TODO</p>
