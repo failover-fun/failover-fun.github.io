@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="410"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="511"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -547,6 +547,126 @@ installation with asciinema.org account by opening the following link:
 <h3 id="rec子命令"><code>rec</code>子命令</h3>
 <hr>
 <p>启动录屏，记录终端会话。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec 
+  <span style="color:#ff79c6">[</span>-h<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>--stdin<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>--append<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>--raw<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>--overwrite<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-c COMMAND<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-e ENV<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-t TITLE<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-i IDLE_TIME_LIMIT<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-y<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>-q<span style="color:#ff79c6">]</span> 
+  <span style="color:#ff79c6">[</span>filename<span style="color:#ff79c6">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--stdin</code></td>
+<td>开启标准输入（键盘）录制</td>
+</tr>
+<tr>
+<td><code>--append</code></td>
+<td>追加到现有录制</td>
+</tr>
+<tr>
+<td><code>--overwrite</code></td>
+<td>覆盖录制（如果已经存在）</td>
+</tr>
+<tr>
+<td><code>-c, --command=&lt;command&gt;</code></td>
+<td>指定要记录的命令，默认为<code>$SHELL</code></td>
+</tr>
+<tr>
+<td><code>-e, --env=&lt;var-names&gt;</code></td>
+<td>要捕获的环境变量列表，默认为<code>SHELL</code>,<code>TERM</code></td>
+</tr>
+<tr>
+<td><code>-t, --title=&lt;title&gt;</code></td>
+<td>指定asciicast的标题</td>
+</tr>
+<tr>
+<td><code>-i, --idle-time-limit=&lt;sec&gt;</code></td>
+<td>将录制的终端不活动状态限制为最大<code>&lt;sec&gt;</code>秒数</td>
+</tr>
+<tr>
+<td><code>-y, --yes</code></td>
+<td>对所有提示回答“是”（例如，上传确认）</td>
+</tr>
+<tr>
+<td><code>-q, --quiet</code></td>
+<td>保持安静，禁止所有通知/警告（暗示-y）</td>
+</tr>
+</tbody>
+</table>
+<p>只要输入<code>asciinema rec</code>命令就开始录屏，其他参数都是可选的。<br>
+如果不提供<code>[filename]</code>，录屏的<code>cast</code>文件将会存储到临时文件。否则将存储到<code>[filename]</code>所指定的path。</p>
+<h4 id="--stdin"><code>--stdin</code></h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --stdin
+</code></pre></td></tr></table>
+</div>
+</div><p>默认情况下，<code>asciinema</code>只会记录标准输出。而对标准输入是不记录的。比如：键盘输入。<br>
+但是，看起来这有一些不容易理解。如果只记录标准输出的话，那么，在终端键入<code>ls -lha</code>这样的命令。
+对于命令本身是应该不被记录下来的，也就是说，通过<code>asciinema play</code>是看不到<code>ls -lha</code>才对。</p>
+<p>那为什么还可以被正确记录下来呢？<br>
+实际上如果不加<code>--stdin</code>这个选项，<code>asciinema</code>记录的是键入<code>ls -lha</code>命令的<strong>显示输出</strong>。<br>
+这对于那些需要键入密码（比如：<code>mysql-client</code>）的命令，而又不希望和别人共享时被其他人看到密码的时候很有用。</p>
+<h4 id="--append"><code>--append</code></h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --append old.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>将录屏追加到既存的<code>old.cast</code>文件中。前提是<code>old.cast</code>必须存在，如果不存在会显示一个不友好的<code>Python</code>提示。<br>
+同时也会检查文件格式，如果不是<code>cast</code>格式会有如下提示:</p>
+<blockquote>
+<p><code>asciinema: can only append to asciicast v2 format recordings</code></p>
+</blockquote>
+<h4 id="--overwrite"><code>--overwrite</code></h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --overwrite old.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>覆盖现有的<code>old.cast</code>文件，如果不存在就创建一个。</p>
+<h4 id="-c---commandcommand"><code>-c, --command=&lt;command&gt;</code></h4>
 <blockquote>
 <p>TODO</p>
 </blockquote>
