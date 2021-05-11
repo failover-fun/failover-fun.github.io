@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="1002"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="1001"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -652,8 +652,10 @@ installation with asciinema.org account by opening the following link:
 </code></pre></td></tr></table>
 </div>
 </div><p>将录屏追加到既存的<code>old.cast</code>文件中。前提是<code>old.cast</code>必须存在，如果不存在会显示一个不友好的<code>Python</code>提示。<br>
-同时也会检查文件格式，如果不是<code>cast</code>格式会有如下提示:
-<strong><code>asciinema: can only append to asciicast v2 format recordings</code></strong></p>
+同时也会检查文件格式，如果不是<code>cast</code>格式会有如下提示:</p>
+<blockquote>
+<p>asciinema: can only append to asciicast v2 format recordings</p>
+</blockquote>
 <h4 id="--overwrite"><code>--overwrite</code></h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -736,10 +738,13 @@ installation with asciinema.org account by opening the following link:
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec -q
 </code></pre></td></tr></table>
 </div>
-</div><p>指定这个选项后，
-既没有录制前的提示: asciinema: press <!-- raw HTML omitted --> or type &ldquo;exit&rdquo; when you&rsquo;re done<br>
-也没有退出后的提示: asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally<br>
+</div><p>指定这个选项后，既没有录制前的提示:</p>
+<blockquote>
+<p>asciinema: press <!-- raw HTML omitted --> or type &ldquo;exit&rdquo; when you&rsquo;re done<br>
+也没有退出后的提示:
+asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally<br>
 当退出录制后，直接将<code>cast</code>文件上传到仓库。</p>
+</blockquote>
 <h3 id="play子命令"><code>play</code>子命令</h3>
 <hr>
 <p>播放录制的<code>asciicast</code>文件，提供以下快捷键盘:</p>
@@ -824,7 +829,10 @@ installation with asciinema.org account by opening the following link:
 asciinema play http://example.com/demo.cast
 </code></pre></td></tr></table>
 </div>
-</div><p>需要页面包含: &lt;link rel=&quot;alternate&quot; type=&quot;application/x-asciicast&quot; href=&quot;/my/ascii.cast&quot;&gt;</p>
+</div><p>需要页面包含:</p>
+<blockquote>
+<p>&lt;link rel=&quot;alternate&quot; type=&quot;application/x-asciicast&quot; href=&quot;/my/ascii.cast&quot;&gt;</p>
+</blockquote>
 <p>从标准输入播放:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -881,7 +889,10 @@ ssh user@host cat asciicast.cast | asciinema play -
 asciinema cat http://example.com/demo.cast
 </code></pre></td></tr></table>
 </div>
-</div><p>需要页面包含: &lt;link rel=&quot;alternate&quot; type=&quot;application/x-asciicast&quot; href=&quot;/my/ascii.cast&quot;&gt;</p>
+</div><p>需要页面包含:</p>
+<blockquote>
+<p>&lt;link rel=&quot;alternate&quot; type=&quot;application/x-asciicast&quot; href=&quot;/my/ascii.cast&quot;&gt;</p>
+</blockquote>
 <p>从标准输入播放:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
