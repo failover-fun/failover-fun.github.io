@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="957"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="958"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -372,7 +372,7 @@ Asciinema由以下几部分组成：
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec
 </code></pre></td></tr></table>
 </div>
-</div><p><code>asciinema</code>会提示<code>cast</code>文件的临时存储位置和如何退出<code>asciinema</code>录屏。</p>
+</div><p><code>asciinema</code>会提示<code>asciicast</code>文件的临时存储位置和如何退出<code>asciinema</code>录屏。</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -480,7 +480,7 @@ installation with asciinema.org account by opening the following link:
 如果直接<code>&lt;enter&gt;</code>退出的话，录屏文件将会无主的形式上传到<a href="https://asciinema.org">Asciinema</a>官网的仓库。直到通过提示的<code>链接</code>去认领，否则，7天之后将会自动归档。<code>&lt;ctrl-c&gt;</code>的话，不会将录屏文件上传到<a href="https://asciinema.org">Asciinema</a>官网的仓库。</p>
 <h3 id="总结">总结</h3>
 <p>一句话来总结就是：<code>Perfect!</code><br>
-屏幕的整个交互内容都被正确的记录下来了。而且，使用<code>mysql-client</code>连接<code>MySQL</code>时，输入的密码也没有被记录下来。即使在<code>cast</code>原始文件中也找不到。
+屏幕的整个交互内容都被正确的记录下来了。而且，使用<code>mysql-client</code>连接<code>MySQL</code>时，输入的密码也没有被记录下来。即使在<code>asciicast</code>原始文件中也找不到。
 这一点非常赞。🎏</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -584,7 +584,7 @@ installation with asciinema.org account by opening the following link:
 </tbody>
 </table>
 <p>只要输入<code>asciinema rec</code>命令就开始录屏，其他参数都是可选的。<br>
-如果不提供<code>[filename]</code>，录屏的<code>cast</code>文件将会存储到临时文件。否则将存储到<code>[filename]</code>所指定的path。</p>
+如果不提供<code>[filename]</code>，录屏的<code>asciicast</code>文件将会存储到临时文件。否则将存储到<code>[filename]</code>所指定的path。</p>
 <h4 id="--stdin"><code>--stdin</code></h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -610,7 +610,7 @@ installation with asciinema.org account by opening the following link:
 </code></pre></td></tr></table>
 </div>
 </div><p>将录屏追加到既存的<code>old.cast</code>文件中。前提是<code>old.cast</code>必须存在，如果不存在会显示一个不友好的<code>Python</code>提示。<br>
-同时也会检查文件格式，如果不是<code>cast</code>格式会有如下提示:</p>
+同时也会检查文件格式，如果不是<code>asciicast</code>格式会有如下提示:</p>
 <blockquote>
 <p>asciinema: can only append to asciicast v2 format recordings</p>
 </blockquote>
@@ -685,7 +685,7 @@ installation with asciinema.org account by opening the following link:
 </div><p>当输入<code>exit</code>退出录制时，如果没指定该选项。<br>
 系统会有一个提示: asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally<br>
 之后，由用户自行选择上传到仓库，或者保存到本地。<br>
-当指定这个选项时，不会有任何提示，直接将<code>cast</code>文件上传到仓库。<br>
+当指定这个选项时，不会有任何提示，直接将<code>asciicast</code>文件上传到仓库。<br>
 这个选项晋档不指定<code>&lt;filename&gt;</code>有效。</p>
 <h4 id="-q---quiet"><code>-q, --quiet</code></h4>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -704,7 +704,7 @@ installation with asciinema.org account by opening the following link:
 <blockquote>
 <p>asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally</p>
 </blockquote>
-<p>当退出录制后，直接将<code>cast</code>文件上传到仓库。</p>
+<p>当退出录制后，直接将<code>asciicast</code>文件上传到仓库。</p>
 <h3 id="play子命令"><code>play</code>子命令</h3>
 <hr>
 <p>播放录制的<code>asciicast</code>文件，提供以下快捷键盘:</p>
@@ -899,7 +899,7 @@ ssh user@host cat asciicast.cast | asciinema cat -
 </div>
 </div><h3 id="auth子命令"><code>auth</code>子命令</h3>
 <hr>
-<p>将安装ID和<a href="https://asciinema.org">Asciinema</a>仓库帐户相关联，并管理上传的<code>cast</code>文件。<br>
+<p>将安装ID和<a href="https://asciinema.org">Asciinema</a>仓库帐户相关联，并管理上传的<code>asciicast</code>文件。<br>
 当首次安装<a href="https://asciinema.org">Asciinema</a>时，会在<code>$HOME/.config/asciinema/install-id</code>生成一个<a href="https://en.wikipedia.org/wiki/Universally_unique_identifiers">UUID v4</a>文件。</p>
 <p>输入<code>asciinema auth</code>命令会得到如下输出:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -920,7 +920,7 @@ https://asciinema.org/connect/9ca63656-f239-4f33-9784-768698ea1319
 This will associate all recordings uploaded from this machine <span style="color:#ff79c6">(</span>past and future ones<span style="color:#ff79c6">)</span> to your account, and allow you to manage them <span style="color:#ff79c6">(</span>change title/theme, delete<span style="color:#ff79c6">)</span> at asciinema.org.
 </code></pre></td></tr></table>
 </div>
-</div><p>通过访问上述的链接与仓库帐户相关联。之后，就可以将本地的<code>cast</code>文件通过<code>asciinema upload</code>命令进行上传。</p>
+</div><p>通过访问上述的链接与仓库帐户相关联。之后，就可以将本地的<code>asciicast</code>文件通过<code>asciinema upload</code>命令进行上传。</p>
 <p>可以在仓库帐户的管理页面对<code>install-id</code>进行撤销处理。<br>
 此时<code>install-id</code>不能在和仓库账号相关联。如果想再次与仓库账号相关联，需要按照以下步骤进行:</p>
 <ol>
@@ -1027,9 +1027,8 @@ This will associate all recordings uploaded from this machine <span style="color
 </div>
 </div><p>配置属性影响<code>asciinema play</code>命令。 参照<a href="#play%E5%AD%90%E5%91%BD%E4%BB%A4">play子命令</a></p>
 <h2 id="共享cast">共享cast</h2>
-<blockquote>
-<p>TODO</p>
-</blockquote>
+<p><a href="https://asciinema.org">Asciinema</a>有多种共享<code>asciicast</code>的手段。
+比如，可以直接把本地的<code>asciicast</code>文件共享</p>
 <h2 id="搭建私服">搭建私服</h2>
 <blockquote>
 <p>TODO</p>
