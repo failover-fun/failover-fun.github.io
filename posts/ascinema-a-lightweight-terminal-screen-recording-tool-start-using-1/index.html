@@ -23,7 +23,7 @@ Asciinema由以下几部分组成：
  一个命令行记录器asciinema 一个官方的分享网站 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
  使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处："><meta itemprop="datePublished" content="2021-05-05T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-05T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="1001"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="957"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Shell,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -331,7 +331,7 @@ Asciinema由以下几部分组成：
 <pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm -ti -v <span style="color:#f1fa8c">&#34;</span><span style="color:#8be9fd;font-style:italic">$HOME</span><span style="color:#f1fa8c">/.config/asciinema&#34;</span>:/root/.config/asciinema asciinema/asciinema
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="试试看">试试看</h2>
+</div><h2 id="尝试">尝试</h2>
 <p>这里通过运行几种类型的命令来<del>验证</del>体验<a href="https://asciinema.org">Asciinema</a>究竟如何。</p>
 <ul>
 <li>一些简单的命令。比如：<code>cat</code>,<code>echo</code></li>
@@ -341,51 +341,9 @@ Asciinema由以下几部分组成：
 <li>实时回显的命名。比如：<code>htop</code></li>
 </ul>
 <p>所有的<del>验证</del>体验都在<a href="https://www.docker.com">Docker</a>环境中进行，下面docker-compose文件提供了一些便利。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#ff79c6">version</span>: <span style="color:#f1fa8c">&#39;3.8&#39;</span>
+<script type="application/javascript" src="https://gist.github.com/failover-fun/9c7cc2dd283556d111fb0fe1e230a66a.js"></script>
 
-<span style="color:#ff79c6">services</span>:
-
-  <span style="color:#ff79c6">asciinema</span>:
-    <span style="color:#ff79c6">image</span>: asciinema/asciinema
-    <span style="color:#ff79c6">stdin_open</span>: <span style="color:#ff79c6">true</span>
-    <span style="color:#ff79c6">tty</span>: <span style="color:#ff79c6">true</span>
-
-  <span style="color:#ff79c6">mysql</span>:
-    <span style="color:#ff79c6">image</span>: mysql:5.7.30
-    <span style="color:#ff79c6">command</span>: --default-authentication-plugin=mysql_native_password
-    <span style="color:#ff79c6">environment</span>:
-      <span style="color:#ff79c6">MYSQL_ROOT_PASSWORD</span>: mysql
-      <span style="color:#ff79c6">MYSQL_DATABASE</span>: test
-    <span style="color:#ff79c6">ports</span>:
-      - <span style="color:#bd93f9">3306</span>
-    <span style="color:#ff79c6">volumes</span>:
-      - ./data/mysql:/var/lib/mysql
-</code></pre></td></tr></table>
-</div>
-</div><p>如果本机没有安装<a href="https://www.docker.com">Docker</a>环境，请参照<a href="https://www.docker.com">Docker</a>的官方文档。
+<p>如果本机没有安装<a href="https://www.docker.com">Docker</a>环境，请参照<a href="https://www.docker.com">Docker</a>的官方文档。
 <a href="https://docs.docker.com/get-docker">安装Docker</a>和<a href="https://docs.docker.com/compose/install">Docker Compose</a>。</p>
 <p>将上面的内容保存到名为<code>docker-compose.yml</code>的文件中，执行命令如下:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -1044,7 +1002,7 @@ This will associate all recordings uploaded from this machine <span style="color
 <span style="color:#50fa7b">quiet</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">true</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>配置属性影响<code>asciinema rec</code>命令。</p>
+</div><p>配置属性影响<code>asciinema rec</code>命令。参照<a href="#rec%E5%AD%90%E5%91%BD%E4%BB%A4">rec子命令</a></p>
 <h3 id="play"><code>[play]</code></h3>
 <hr>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -1067,8 +1025,8 @@ This will associate all recordings uploaded from this machine <span style="color
 <span style="color:#50fa7b">idle_time_limit</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">1</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>配置属性影响<code>asciinema play</code>命令。</p>
-<h2 id="分享cast">分享cast</h2>
+</div><p>配置属性影响<code>asciinema play</code>命令。 参照<a href="#play%E5%AD%90%E5%91%BD%E4%BB%A4">play子命令</a></p>
+<h2 id="共享cast">共享cast</h2>
 <blockquote>
 <p>TODO</p>
 </blockquote>
