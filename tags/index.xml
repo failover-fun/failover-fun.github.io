@@ -17,11 +17,20 @@
     </item>
     
     <item>
-      <title>Shell</title>
-      <link>https://failover.fun/tags/shell/</link>
+      <title>Recorder</title>
+      <link>https://failover.fun/tags/recorder/</link>
       <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/tags/shell/</guid>
+      <guid>https://failover.fun/tags/recorder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terminal</title>
+      <link>https://failover.fun/tags/terminal/</link>
+      <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/tags/terminal/</guid>
       <description></description>
     </item>
     

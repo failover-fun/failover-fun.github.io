@@ -20,16 +20,22 @@
     <loc>https://failover.fun/posts/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
+    <loc>https://failover.fun/tags/recorder/</loc>
+    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/recorder/</loc>
+    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
+  </url><url>
     <loc>https://failover.fun/series/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover.fun/tags/shell/</loc>
-    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/categories/shell/</loc>
-    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
-  </url><url>
     <loc>https://failover.fun/tags/</loc>
+    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/terminal/</loc>
+    <lastmod>2021-05-05T15:23:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/terminal/</loc>
     <lastmod>2021-05-05T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/tags/tools/</loc>
