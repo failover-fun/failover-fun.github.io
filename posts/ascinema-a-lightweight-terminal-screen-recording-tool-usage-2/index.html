@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-ch" lang="zh-ch">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="apple-mobile-web-app-title" content="Fi.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <title>Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7） &middot; </title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）">
+<meta itemprop="description" content="asciinema由rec、play、cat、upload、auth5个子命令组成。
+rec子命令  启动录屏，记录终端会话。
+1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。"><meta itemprop="datePublished" content="2021-05-06T15:23:01&#43;09:00" />
+<meta itemprop="dateModified" content="2021-05-06T15:23:01&#43;09:00" />
+<meta itemprop="wordCount" content="410"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="keywords" content="Asciinema,Terminal,Recorder,Tools," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+
+<meta name="twitter:title" content="Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）"/>
+<meta name="twitter:description" content="asciinema由rec、play、cat、upload、auth5个子命令组成。
+rec子命令  启动录屏，记录终端会话。
+1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。"/>
+
+
+<meta property="og:title" content="Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）" />
+<meta property="og:description" content="asciinema由rec、play、cat、upload、auth5个子命令组成。
+rec子命令  启动录屏，记录终端会话。
+1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/" /><meta property="og:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-06T15:23:01&#43;09:00" />
+<meta property="article:modified_time" content="2021-05-06T15:23:01&#43;09:00" />
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type":"Person",
+      "@id": "https://failover.fun#author",
+      "name":  null ,
+      "image": {
+        "@type":"ImageObject",
+        
+        "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png"
+        
+      },
+      "description":  null 
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://failover.fun#website",
+      "url": "https://failover.fun",
+      "name": "",
+      "description":  null ,
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "inLanguage": "zh-ch"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png",
+      "caption": ""
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#webpage",
+      "url": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/",
+      "name": "Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）",
+      "isPartOf": {
+        "@id": "https://failover.fun#website"
+      },
+      "about": {
+         "@id": "https://failover.fun#author"
+      },
+      "datePublished": "2021-05-06T15:23:01+09:00",
+      "dateModified": "2021-05-06T15:23:01+09:00",
+      "description": "asciinema由rec、play、cat、upload、auth5个子命令组成。\nrec子命令  启动录屏，记录终端会话。\n1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。",
+      "inLanguage": "zh-ch",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "isPartOf": {
+        "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#webpage"
+      },
+      "headline": "Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）",
+      "datePublished": "2021-05-06T15:23:01+09:00",
+      "dateModified": "2021-05-06T15:23:01+09:00",
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "keywords": [
+        "Asciinema",
+        "Terminal",
+        "Recorder",
+        "Tools"
+      ],
+      "articleSection": [
+        "Terminal",
+        "Recorder",
+        "Tools"
+      ],
+      "inLanguage": "zh-ch",
+      "author": {
+        "@type": "Person",
+        "name":  null 
+      },
+      "potentialAction": [
+        {
+          "@type": "CommentAction",
+          "name": "Comment",
+          "target": [
+            "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#comments"
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+  <link rel="manifest" href="/manifest.json">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+<style type="text/css">
+  .sidebar {
+    background-color: #05aa55;
+  }
+
+  .read-more-link a {
+    border-color: #05aa55;
+  }
+
+  .read-more-link a:hover {
+    background-color: #05aa55;
+  }
+
+  .pagination li a {
+    color: #05aa55;
+    border: 1px solid #05aa55;
+  }
+
+  .pagination li.active a {
+    background-color: #05aa55;
+  }
+
+  .pagination li a:hover {
+    background-color: #05aa55;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #05aa55;
+  }
+</style>
+
+
+
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="https://failover.fun">
+            <img src="/assets/favicon/android-chrome-512x512.png" class="img-circle img-headshot center" alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1></h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://failover.fun">Home</a>
+        </li>
+        <li>
+          <a href="/posts/">Posts</a>
+        </li><li>
+          <a href="/categories/">Categories</a>
+        </li><li>
+          <a href="/series/">Series</a>
+        </li><li>
+          <a href="/tags/">Tags</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1 class="title">Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）</h1>
+  
+
+  <div class="post-date">
+    <time datetime="2021-05-06T15:23:01&#43;0900">2021-05-06</time> 
+    
+  </div>
+
+  <div>
+  <p><code>asciinema</code>由<code>rec</code>、<code>play</code>、<code>cat</code>、<code>upload</code>、<code>auth</code>5个子命令组成。</p>
+<h2 id="rec子命令"><code>rec</code>子命令</h2>
+<hr>
+<p>启动录屏，记录终端会话。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec 
+  <span style="color:#000">[</span>-h<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>--stdin<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>--append<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>--raw<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>--overwrite<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-c COMMAND<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-e ENV<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-t TITLE<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-i IDLE_TIME_LIMIT<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-y<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-q<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>filename<span style="color:#000">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>只要输入<code>asciinema rec</code>命令就开始录屏，其他选项都是可选的。<br>
+如果不提供<code>[filename]</code>，录屏的<code>asciicast</code>文件将会存储到临时文件。否则将存储到<code>[filename]</code>所指定的path。</p>
+<h3 id="选项">选项</h3>
+<h4 id="--stdin"><code>--stdin</code></h4>
+<p>开启标准输入（键盘）录制。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --stdin
+</code></pre></td></tr></table>
+</div>
+</div><p>默认情况下，<code>asciinema</code>只会记录标准输出。而对标准输入是不记录的。比如：键盘输入。<br>
+但是，看起来这有一些不容易理解。如果只记录标准输出的话，那么，在终端键入<code>ls -lha</code>这样的命令。
+对于命令本身是应该不被记录下来的，也就是说，通过<code>asciinema play</code>是看不到<code>ls -lha</code>才对。</p>
+<p>那为什么还可以被正确记录下来呢？<br>
+实际上如果不加<code>--stdin</code>这个选项，<code>asciinema</code>记录的是键入<code>ls -lha</code>命令的<strong>显示输出</strong>。<br>
+这对于那些需要键入密码（比如：<code>mysql-client</code>）的命令，而又不希望和别人共享时被其他人看到密码的时候很有用。</p>
+<h4 id="--append"><code>--append</code></h4>
+<p>追加到现有录制。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --append old.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>将录屏追加到既存的<code>old.cast</code>文件中。前提是<code>old.cast</code>必须存在，如果不存在会显示一个不友好的<code>Python</code>提示。<br>
+同时也会检查文件格式，如果不是<code>asciicast</code>格式会有如下提示:</p>
+<blockquote>
+<p>asciinema: can only append to asciicast v2 format recordings</p>
+</blockquote>
+<h4 id="--overwrite"><code>--overwrite</code></h4>
+<p>覆盖录制（如果已经存在）。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --overwrite old.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>覆盖现有的<code>old.cast</code>文件，如果不存在就创建一个。</p>
+<h4 id="-c---commandcommand"><code>-c, --command=&lt;command&gt;</code></h4>
+<p>指定要记录的命令，默认为<code>$SHELL</code>。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec  -c /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><p>实在没搞明白这个<code>-c</code>应该怎么用比较好。总之，可以在不同的SHELL间切换<code>zsh</code>→<code>bash</code>。默认是<code>$SHELL</code><br>
+可能还有些更高级的用法，需要挖掘一下。</p>
+<h4 id="-e---envvar-names"><code>-e, --env=&lt;var-names&gt;</code></h4>
+<p>要捕获的环境变量列表，默认为<code>SHELL</code>,<code>TERM</code>。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --env<span style="color:#000">=</span>SHELL,TERM,LANG,LC_ALL
+</code></pre></td></tr></table>
+</div>
+</div><p>这个选项用来捕获环境变量的。默认的环境变量是<code>SHELL</code>,<code>TERM</code>。如果需要捕获更多环境变量。将环境变量添加到<code>--env</code>选项即可。</p>
+<h4 id="-t---titletitle"><code>-t, --title=&lt;title&gt;</code></h4>
+<p>指定asciicast的标题。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --title<span style="color:#000">=</span><span style="color:#c41a16">&#34;hello world&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为<code>asciicast</code>指定一个标题，作为上传到仓库显示的标题。</p>
+<h4 id="-i---idle-time-limitsec"><code>-i, --idle-time-limit=&lt;sec&gt;</code></h4>
+<p>将录制的终端不活动状态限制为最大<code>&lt;sec&gt;</code>秒数。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec --idle-time-limit<span style="color:#000">=</span><span style="color:#1c01ce">3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个选项非常有用。
+官方文档的解释是:</p>
+<blockquote>
+<p>Limit recorded terminal inactivity to max <code>&lt;sec&gt;</code> seconds</p>
+</blockquote>
+<p>那么，这是什么意思呢。<br>
+比如：在输入<code>df -h</code>命令之后，大概等待30秒又输入了<code>free -m</code>。可能这段时间你在思考屏幕的输出内容。<br>
+那么，使用这个选项使两条命令之间的显示间隔限制在<code>3秒</code>。也就是说两条命令的显示间隔最大不超过<code>3秒</code>。<br>
+这样，当使用<code>asciinema play</code>回放的时候，观看者就不用在等待<code>30秒</code>了。</p>
+<h4 id="-y---yes"><code>-y, --yes</code></h4>
+<p>对所有提示回答“是”（例如，上传确认）。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec -y
+</code></pre></td></tr></table>
+</div>
+</div><p>当输入<code>exit</code>退出录制时，如果没指定该选项。<br>
+系统会有一个提示: asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally<br>
+之后，由用户自行选择上传到仓库，或者保存到本地。<br>
+当指定这个选项时，不会有任何提示，直接将<code>asciicast</code>文件上传到仓库。<br>
+这个选项晋档不指定<code>&lt;filename&gt;</code>有效。</p>
+<h4 id="-q---quiet"><code>-q, --quiet</code></h4>
+<p>保持安静，禁止所有通知/警告（也包含<a href="#-y---yes"><code>-y</code></a>选项的效果）。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema rec -q
+</code></pre></td></tr></table>
+</div>
+</div><p>指定这个选项后，既没有录制前的提示:</p>
+<blockquote>
+<p>asciinema: press <!-- raw HTML omitted --> or type &ldquo;exit&rdquo; when you&rsquo;re done</p>
+</blockquote>
+<p>也没有退出后的提示:</p>
+<blockquote>
+<p>asciinema: press <!-- raw HTML omitted --> to upload to asciinema.org, <!-- raw HTML omitted --> to save locally</p>
+</blockquote>
+<p>当退出录制后，直接将<code>asciicast</code>文件上传到仓库。</p>
+<h2 id="play子命令"><code>play</code>子命令</h2>
+<hr>
+<p>播放录制的<code>asciicast</code>文件，提供以下快捷键盘:</p>
+<ul>
+<li><code>Space</code> - 暂停播放</li>
+<li><code>.</code> - 按帧暂停播放</li>
+<li><code>Ctrl+C</code> - 退出播放</li>
+</ul>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play 
+  <span style="color:#000">[</span>-h<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-i IDLE_TIME_LIMIT<span style="color:#000">]</span> 
+  <span style="color:#000">[</span>-s SPEED<span style="color:#000">]</span> 
+  filename
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="选项-1">选项</h3>
+<h4 id="-i---idle-time-limitsec-1"><code>-i, --idle-time-limit=&lt;sec&gt;</code></h4>
+<p>将录制的终端不活动状态限制为最大<code>&lt;sec&gt;</code>秒数</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play --idle-time-limit<span style="color:#000">=</span><span style="color:#1c01ce">3</span> /path/to/asciicast.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>和<code>asciinema rec --idle-time-limit=3</code>的效果一样。如果<code>asciinema rec</code>没有指定这个参数，可以在这里指定。</p>
+<h4 id="-s---speedfactor"><code>-s, --speed=&lt;factor&gt;</code></h4>
+<p>播放速率（可以是分数）</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play --speed<span style="color:#000">=</span><span style="color:#1c01ce">2</span> /path/to/asciicast.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>就和视频播放器一样，按照<code>--speed=2</code>的2倍速率快播。<code>--speed=0.5</code>倍的速率慢播。</p>
+<h4 id="filename"><code>&lt;filename&gt;</code></h4>
+<p><code>&lt;filename&gt;</code>可以是<code>本地文件</code>、<code>http/ipfs URL</code>、<code>标准输入</code> 。</p>
+<h5 id="从本地文件播放">从本地文件播放</h5>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play /path/to/asciicast.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>从HTTP(S) URL播放:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play https://asciinema.org/a/335480
+asciinema play http://example.com/demo.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>需要页面包含:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">link</span> <span style="color:#836c28">rel</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;alternate&#34;</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;application/x-asciicast&#34;</span> <span style="color:#836c28">href</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;/my/ascii.cast&#34;</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="从标准输入播放">从标准输入播放</h6>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /path/to/asciicast.cast | asciinema play -
+ssh user@host cat asciicast.cast | asciinema play -
+</code></pre></td></tr></table>
+</div>
+</div><h6 id="从ipfs播放">从IPFS播放</h6>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema play dweb:/ipfs/QmNe7FsYaHc9SaDEAEXbaagAzNw9cH7YbzN4xV7jV1MCzK/ascii.cast
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="cat子命令"><code>cat</code>子命令</h2>
+<hr>
+<p>直接显示播放结果。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema cat 
+  <span style="color:#000">[</span>-h<span style="color:#000">]</span> 
+  filename
+</code></pre></td></tr></table>
+</div>
+</div><p>和<code>asciinema play</code>一样。<code>&lt;filename&gt;</code>可以是<code>本地文件</code>、<code>http/ipfs URL</code>、<code>标准输入</code> 。</p>
+<p>从本地文件播放:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema cat /path/to/asciicast.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>从HTTP(S) URL播放:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema cat https://asciinema.org/a/335480
+asciinema cat http://example.com/demo.cast
+</code></pre></td></tr></table>
+</div>
+</div><p>需要页面包含:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">link</span> <span style="color:#836c28">rel</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;alternate&#34;</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;application/x-asciicast&#34;</span> <span style="color:#836c28">href</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;/my/ascii.cast&#34;</span>&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>从标准输入播放:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /path/to/asciicast.cast | asciinema cat -
+ssh user@host cat asciicast.cast | asciinema cat -
+</code></pre></td></tr></table>
+</div>
+</div><p>从IPFS播放：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema cat dweb:/ipfs/QmNe7FsYaHc9SaDEAEXbaagAzNw9cH7YbzN4xV7jV1MCzK/ascii.cast
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="upload子命令"><code>upload</code>子命令</h2>
+<hr>
+<p>将录制的<code>asciicast</code>文件上传到<a href="https://asciinema.org">Asciinema</a>的官网仓库。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema upload 
+  <span style="color:#000">[</span>-h<span style="color:#000">]</span> 
+  filename
+</code></pre></td></tr></table>
+</div>
+</div><p>上传到<a href="https://asciinema.org">Asciinema</a>的官网仓库</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">asciinema upload /path/to/asciicast.cast
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="auth子命令"><code>auth</code>子命令</h2>
+<hr>
+<p>将安装ID和<a href="https://asciinema.org">Asciinema</a>仓库帐户相关联，并管理上传的<code>asciicast</code>文件。<br>
+当首次安装<a href="https://asciinema.org">Asciinema</a>时，会在<code>$HOME/.config/asciinema/install-id</code>生成一个<a href="https://en.wikipedia.org/wiki/Universally_unique_identifiers">UUID v4</a>文件。</p>
+<p>输入<code>asciinema auth</code>命令会得到如下输出:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜ asciinema auth
+Open the following URL in a web browser to link your install ID with your asciinema.org user account:
+
+https://asciinema.org/connect/9ca63656-f239-4f33-9784-768698ea1319
+
+This will associate all recordings uploaded from this machine <span style="color:#000">(</span>past and future ones<span style="color:#000">)</span> to your account, and allow you to manage them <span style="color:#000">(</span>change title/theme, delete<span style="color:#000">)</span> at asciinema.org.
+</code></pre></td></tr></table>
+</div>
+</div><p>通过访问上述的链接与仓库帐户相关联。之后，就可以将本地的<code>asciicast</code>文件通过<code>asciinema upload</code>命令进行上传。</p>
+<p>可以在仓库帐户的管理页面对<code>install-id</code>进行撤销处理。<br>
+已经撤销的<code>install-id</code>不能再次和仓库账号相关联。如果想再次与仓库账号相关联，需要按照以下步骤进行:</p>
+<ol>
+<li>删除<code>$HOME/.config/asciinema/install-id</code>文件。</li>
+<li>执行<code>asciinema auth</code>命令重新与仓库账号关联。</li>
+</ol>
+
+  </div>
+
+  
+<div>
+  <ul class="tags">
+  <li>
+    <a href="https://failover.fun/tags/asciinema/" class="tag-link">Asciinema</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/terminal/" class="tag-link">Terminal</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/recorder/" class="tag-link">Recorder</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/tools/" class="tag-link">Tools</a>
+  </li>
+  </ul>
+</div>
+
+
+
+  
+
+  
+</div>
+  </main>
+
+  <footer>
+  <div>
+    <p>
+      &copy; failover.fun 2021
+
+      
+
+      
+    </p>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/soho.js"></script>
+
+  
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HB3ZLXTY9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8HB3ZLXTY9', { 'anonymize_ip': false });
+}
+</script>
+
+  
+</body>
+</html>

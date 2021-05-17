@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-ch" lang="zh-ch">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="apple-mobile-web-app-title" content="Fi.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <title>Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7） &middot; </title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）">
+<meta itemprop="description" content="可以为Asciinema提供一个config配置文件。 将其存储到: $HOME/.config/asciinema/config。好处是为命令提供默认值。
+可以使用环境变量来更改存储路径。
+使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
+如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。
+配置由[api]、[record]、[play]三段组成。
+[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema."><meta itemprop="datePublished" content="2021-05-07T15:23:01&#43;09:00" />
+<meta itemprop="dateModified" content="2021-05-07T15:23:01&#43;09:00" />
+<meta itemprop="wordCount" content="180"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="keywords" content="Asciinema,Terminal,Recorder,Tools," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+
+<meta name="twitter:title" content="Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）"/>
+<meta name="twitter:description" content="可以为Asciinema提供一个config配置文件。 将其存储到: $HOME/.config/asciinema/config。好处是为命令提供默认值。
+可以使用环境变量来更改存储路径。
+使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
+如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。
+配置由[api]、[record]、[play]三段组成。
+[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema."/>
+
+
+<meta property="og:title" content="Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）" />
+<meta property="og:description" content="可以为Asciinema提供一个config配置文件。 将其存储到: $HOME/.config/asciinema/config。好处是为命令提供默认值。
+可以使用环境变量来更改存储路径。
+使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
+如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。
+配置由[api]、[record]、[play]三段组成。
+[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/" /><meta property="og:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-07T15:23:01&#43;09:00" />
+<meta property="article:modified_time" content="2021-05-07T15:23:01&#43;09:00" />
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type":"Person",
+      "@id": "https://failover.fun#author",
+      "name":  null ,
+      "image": {
+        "@type":"ImageObject",
+        
+        "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png"
+        
+      },
+      "description":  null 
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://failover.fun#website",
+      "url": "https://failover.fun",
+      "name": "",
+      "description":  null ,
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "inLanguage": "zh-ch"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png",
+      "caption": ""
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/#webpage",
+      "url": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/",
+      "name": "Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）",
+      "isPartOf": {
+        "@id": "https://failover.fun#website"
+      },
+      "about": {
+         "@id": "https://failover.fun#author"
+      },
+      "datePublished": "2021-05-07T15:23:01+09:00",
+      "dateModified": "2021-05-07T15:23:01+09:00",
+      "description": "可以为Asciinema提供一个config配置文件。 将其存储到: $HOME/.config/asciinema/config。好处是为命令提供默认值。\n可以使用环境变量来更改存储路径。\n使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。\n如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。\n配置由[api]、[record]、[play]三段组成。\n[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema.",
+      "inLanguage": "zh-ch",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "isPartOf": {
+        "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/#webpage"
+      },
+      "headline": "Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）",
+      "datePublished": "2021-05-07T15:23:01+09:00",
+      "dateModified": "2021-05-07T15:23:01+09:00",
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "keywords": [
+        "Asciinema",
+        "Terminal",
+        "Recorder",
+        "Tools"
+      ],
+      "articleSection": [
+        "Terminal",
+        "Recorder",
+        "Tools"
+      ],
+      "inLanguage": "zh-ch",
+      "author": {
+        "@type": "Person",
+        "name":  null 
+      },
+      "potentialAction": [
+        {
+          "@type": "CommentAction",
+          "name": "Comment",
+          "target": [
+            "https://failover.fun/posts/ascinema-a-lightweight-terminal-screen-recording-tool-configuration-file-3/#comments"
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+  <link rel="manifest" href="/manifest.json">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+<style type="text/css">
+  .sidebar {
+    background-color: #05aa55;
+  }
+
+  .read-more-link a {
+    border-color: #05aa55;
+  }
+
+  .read-more-link a:hover {
+    background-color: #05aa55;
+  }
+
+  .pagination li a {
+    color: #05aa55;
+    border: 1px solid #05aa55;
+  }
+
+  .pagination li.active a {
+    background-color: #05aa55;
+  }
+
+  .pagination li a:hover {
+    background-color: #05aa55;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #05aa55;
+  }
+</style>
+
+
+
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="https://failover.fun">
+            <img src="/assets/favicon/android-chrome-512x512.png" class="img-circle img-headshot center" alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1></h1>
+
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://failover.fun">Home</a>
+        </li>
+        <li>
+          <a href="/posts/">Posts</a>
+        </li><li>
+          <a href="/categories/">Categories</a>
+        </li><li>
+          <a href="/series/">Series</a>
+        </li><li>
+          <a href="/tags/">Tags</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1 class="title">Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）</h1>
+  
+
+  <div class="post-date">
+    <time datetime="2021-05-07T15:23:01&#43;0900">2021-05-07</time> 
+    
+  </div>
+
+  <div>
+  <p>可以为<a href="https://asciinema.org">Asciinema</a>提供一个<code>config</code>配置文件。
+将其存储到: <code>$HOME/.config/asciinema/config</code>。好处是为命令提供默认值。</p>
+<p>可以使用环境变量来更改存储路径。<br>
+使用<code>$ASCIINEMA_CONFIG_HOME</code>更改配置目录的位置。<br>
+如果环境变量设置<code>$XDG_CONFIG_HOME</code>，配置目录的位置将是：<code>$XDG_CONFIG_HOME/asciinema</code>。</p>
+<p>配置由<code>[api]</code>、<code>[record]</code>、<code>[play]</code>三段组成。</p>
+<h2 id="api"><code>[api]</code></h2>
+<hr>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a90d91">[api]</span>
+
+<span style="color:#177500">; API server URL, default: https://asciinema.org</span>
+<span style="color:#177500">; If you run your own instance of asciinema-server then set its address here</span>
+<span style="color:#177500">; It can also be overriden by setting ASCIINEMA_API_URL environment variable</span>
+<span style="color:#836c28">url</span> <span style="color:#000">=</span> <span style="color:#c41a16">https://asciinema.example.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置<code>asciinema-server</code>服务器的地址。在搭建私服时，需要修改此属性。<br>
+可以在环境变量设置<code>ASCIINEMA_API_URL</code>来覆盖它。</p>
+<h2 id="record"><code>[record]</code></h2>
+<hr>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a90d91">[record]</span>
+
+<span style="color:#177500">; Command to record, default: $SHELL</span>
+<span style="color:#836c28">command</span> <span style="color:#000">=</span> <span style="color:#c41a16">/bin/bash -l</span>
+
+<span style="color:#177500">; Enable stdin (keyboard) recording, default: no</span>
+<span style="color:#836c28">stdin</span> <span style="color:#000">=</span> <span style="color:#c41a16">yes</span>
+
+<span style="color:#177500">; List of environment variables to capture, default: SHELL,TERM</span>
+<span style="color:#836c28">env</span> <span style="color:#000">=</span> <span style="color:#c41a16">SHELL,TERM,USER</span>
+
+<span style="color:#177500">; Limit recorded terminal inactivity to max n seconds, default: off</span>
+<span style="color:#836c28">idle_time_limit</span> <span style="color:#000">=</span> <span style="color:#c41a16">2</span>
+
+<span style="color:#177500">; Answer &#34;yes&#34; to all interactive prompts, default: no</span>
+<span style="color:#836c28">yes</span> <span style="color:#000">=</span> <span style="color:#c41a16">true</span>
+
+<span style="color:#177500">; Be quiet, suppress all notices/warnings, default: no</span>
+<span style="color:#836c28">quiet</span> <span style="color:#000">=</span> <span style="color:#c41a16">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置属性影响<code>asciinema rec</code>命令。参照<a href="/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#rec子命令">rec子命令</a></p>
+<h2 id="play"><code>[play]</code></h2>
+<hr>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#a90d91">[play]</span>
+
+<span style="color:#177500">; Playback speed (can be fractional), default: 1</span>
+<span style="color:#836c28">speed</span> <span style="color:#000">=</span> <span style="color:#c41a16">2</span>
+
+<span style="color:#177500">; Limit replayed terminal inactivity to max n seconds, default: off</span>
+<span style="color:#836c28">idle_time_limit</span> <span style="color:#000">=</span> <span style="color:#c41a16">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>配置属性影响<code>asciinema play</code>命令。 参照<a href="/posts/ascinema-a-lightweight-terminal-screen-recording-tool-usage-2/#play子命令">play子命令</a></p>
+
+  </div>
+
+  
+<div>
+  <ul class="tags">
+  <li>
+    <a href="https://failover.fun/tags/asciinema/" class="tag-link">Asciinema</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/terminal/" class="tag-link">Terminal</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/recorder/" class="tag-link">Recorder</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/tools/" class="tag-link">Tools</a>
+  </li>
+  </ul>
+</div>
+
+
+
+  
+
+  
+</div>
+  </main>
+
+  <footer>
+  <div>
+    <p>
+      &copy; failover.fun 2021
+
+      
+
+      
+    </p>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/soho.js"></script>
+
+  
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HB3ZLXTY9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8HB3ZLXTY9', { 'anonymize_ip': false });
+}
+</script>
+
+  
+</body>
+</html>
