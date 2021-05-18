@@ -21,7 +21,7 @@
 这个时候可以在企业内部搭建私服来解决存储和分享asciicast的需求。
 硬件需求  单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间  安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。"><meta itemprop="datePublished" content="2021-05-09T15:23:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-05-09T15:23:01&#43;09:00" />
-<meta itemprop="wordCount" content="609"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="174"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Asciinema,Terminal,Recorder,Tools," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -295,371 +295,169 @@
 这可能需要修改源代码，重新构建镜像来支持<a href="https://www.mysql.com/">MySQL</a>数据库。<br>
 另外，<code>asciicast</code>文件默认保存在服务器的本地存储，也可以通过修改配置将<code>asciicast</code>文件保存到<code>AWS S3</code>。<br>
 但是，如果希望存储到开源的<code>OSS</code>，比如: <a href="https://min.io/">MinIO</a>。这也需要修改一些源代码。</p>
-<p>官方提供一个<a href="https://github.com/asciinema/asciinema-server/blob/master/docker-compose.yml">docker-compose.yml文件</a>。可以使用它快速运行一个私服。</p>
+<h3 id="安装">安装</h3>
+<p>官方提供一个<a href="https://github.com/asciinema/asciinema-server/blob/master/docker-compose.yml">docker-compose.yml</a>文件。使用它可以快速启动私服。<br>
+你可以使用<code>git</code>克隆<a href="https://github.com/asciinema/asciinema-server/blob/master">asciinema-server</a>私服源码仓库。</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">version</span>: <span style="color:#c41a16">&#39;2&#39;</span>
-
-<span style="color:#000">services</span>:
-  <span style="color:#000">postgres</span>:
-    <span style="color:#000">image</span>: <span style="color:#1c01ce">postgres:10.6-alpine</span>
-    <span style="color:#000">container_name</span>: <span style="color:#1c01ce">asciinema_postgres</span>
-    <span style="color:#000">restart</span>: <span style="color:#1c01ce">unless-stopped</span>
-    <span style="color:#000">volumes</span>:
-      - <span style="color:#1c01ce">./volumes/postgres:/var/lib/postgresql/data</span>
-    <span style="color:#177500">### See https://hub.docker.com/_/postgres/ for more</span>
-    <span style="color:#177500">### configuration options for this image.</span>
-
-  <span style="color:#000">redis</span>:
-    <span style="color:#000">image</span>: <span style="color:#1c01ce">redis:4.0-alpine</span>
-    <span style="color:#000">container_name</span>: <span style="color:#1c01ce">asciinema_redis</span>
-    <span style="color:#000">restart</span>: <span style="color:#1c01ce">unless-stopped</span>
-    <span style="color:#000">volumes</span>:
-      - <span style="color:#1c01ce">./volumes/redis:/data</span>
-    <span style="color:#177500">### See https://hub.docker.com/_/redis/ for more</span>
-    <span style="color:#177500">### configuration options for this image.</span>
-
-  <span style="color:#000">smtp</span>:
-    <span style="color:#000">image</span>: <span style="color:#1c01ce">namshi/smtp</span>
-    <span style="color:#000">container_name</span>: <span style="color:#1c01ce">asciinema_smtp</span>
-    <span style="color:#000">restart</span>: <span style="color:#1c01ce">unless-stopped</span>
-    <span style="color:#000">env_file</span>: <span style="color:#1c01ce">.env.production</span>
-    <span style="color:#177500">### See https://github.com/namshi/docker-smtp for more SMTP configuration</span>
-    <span style="color:#177500">### options for this image.</span>
-
-  <span style="color:#000">nginx</span>:
-    <span style="color:#000">image</span>: <span style="color:#1c01ce">nginx:1.15-alpine</span>
-    <span style="color:#000">container_name</span>: <span style="color:#1c01ce">asciinema_nginx</span>
-    <span style="color:#000">restart</span>: <span style="color:#1c01ce">unless-stopped</span>
-    <span style="color:#000">links</span>:
-      - <span style="color:#1c01ce">phoenix</span>
-    <span style="color:#000">ports</span>:
-      - <span style="color:#c41a16">&#34;80:80&#34;</span>
-      <span style="color:#177500">### Uncomment for HTTPS:</span>
-      <span style="color:#177500"># - &#34;443:443&#34;</span>
-    <span style="color:#000">volumes</span>:
-      - <span style="color:#1c01ce">./docker/nginx/asciinema.conf:/etc/nginx/conf.d/default.conf:ro</span>
-      - <span style="color:#1c01ce">./volumes/cache:/cache</span>
-      <span style="color:#177500">### Uncomment for HTTPS (make sure to add your cert and private key to ./certs):</span>
-      <span style="color:#177500">#  - ./certs:/app/priv/certs</span>
-    <span style="color:#177500">### See https://hub.docker.com/_/nginx/ for more configuration options for</span>
-    <span style="color:#177500">### this image.</span>
-
-  <span style="color:#000">phoenix</span>:
-    <span style="color:#000">image</span>: <span style="color:#1c01ce">asciinema/asciinema-server</span>
-    <span style="color:#000">container_name</span>: <span style="color:#1c01ce">asciinema_phoenix</span>
-    <span style="color:#000">restart</span>: <span style="color:#1c01ce">unless-stopped</span>
-    <span style="color:#000">links</span>:
-      - <span style="color:#1c01ce">redis</span>
-      - <span style="color:#1c01ce">postgres</span>
-      - <span style="color:#1c01ce">smtp</span>
-    <span style="color:#000">env_file</span>: <span style="color:#1c01ce">.env.production</span>
-    <span style="color:#000">volumes</span>:
-      - <span style="color:#1c01ce">./volumes/uploads:/opt/app/uploads</span>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone -b master git@github.com:asciinema/asciinema-server.git
 </code></pre></td></tr></table>
 </div>
-</div><p>这个是nginx容器所需要的<a href="https://github.com/asciinema/asciinema-server/blob/develop/docker/nginx/asciinema.conf">配置文件</a>。可以根据自己的需求进行修改。</p>
+</div><p>然后，使用<a href="https://github.com/asciinema/asciinema-server/blob/master/docker-compose.yml">docker-compose.yml</a>启动私服。</p>
+<p>另一种方式是只获取必要的三文件:</p>
+<ul>
+<li><a href="https://github.com/asciinema/asciinema-server/blob/master/docker-compose.yml">docker-compose.yml</a>文件</li>
+<li>nginx容器所需要的<a href="https://github.com/asciinema/asciinema-server/blob/master/docker/nginx/asciinema.conf">配置文件</a></li>
+<li>环境变量文件<a href="https://github.com/asciinema/asciinema-server/blob/master/.env.production.sample">.env.production</a></li>
+</ul>
+<p>获取三个必要的文件:</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a90d91">upstream</span> <span style="color:#c41a16">phoenix-server</span> {
-    <span style="color:#a90d91">server</span> <span style="color:#000">phoenix</span>:<span style="color:#1c01ce">4000</span> <span style="color:#c41a16">fail_timeout=0</span>;
-}
-
-<span style="color:#177500"># asciicast cache
-</span><span style="color:#177500"></span><span style="color:#a90d91">proxy_cache_path</span> <span style="color:#c41a16">/cache/cast</span> <span style="color:#c41a16">levels=1:2</span> <span style="color:#c41a16">keys_zone=cast_cache:100m</span> <span style="color:#c41a16">max_size=10g</span>
-                 <span style="color:#c41a16">inactive=180d</span> <span style="color:#c41a16">use_temp_path=off</span>;
-
-<span style="color:#177500"># png cache
-</span><span style="color:#177500"></span><span style="color:#a90d91">proxy_cache_path</span> <span style="color:#c41a16">/cache/png</span> <span style="color:#c41a16">levels=1:2</span> <span style="color:#c41a16">keys_zone=png_cache:100m</span> <span style="color:#c41a16">max_size=10g</span>
-                 <span style="color:#c41a16">inactive=30d</span> <span style="color:#c41a16">use_temp_path=off</span>;
-
-<span style="color:#a90d91">map</span> <span style="color:#000">$http_x_forwarded_proto</span> <span style="color:#000">$real_scheme</span> {
-    <span style="color:#a90d91">default</span> <span style="color:#000">$http_x_forwarded_proto</span>;
-    <span style="color:#a90d91">&#39;&#39;</span>      <span style="color:#000">$scheme</span>;
-}
-
-<span style="color:#a90d91">server</span> {
-    <span style="color:#a90d91">listen</span> <span style="color:#1c01ce">80</span> <span style="color:#c41a16">default_server</span>;
-    <span style="color:#a90d91">listen</span> <span style="color:#c41a16">[::]:80</span> <span style="color:#c41a16">default_server</span>;
-
-    <span style="color:#177500">### Uncomment this section for HTTPS, replacing &lt;my-cert&gt; as appropriate:
-</span><span style="color:#177500"></span>    <span style="color:#177500"># listen 443 ssl;
-</span><span style="color:#177500"></span>    <span style="color:#177500"># ssl_certificate     /app/priv/certs/&lt;my-cert&gt;.crt;
-</span><span style="color:#177500"></span>    <span style="color:#177500"># ssl_certificate_key /app/priv/certs/&lt;my-cert&gt;.key;
-</span><span style="color:#177500"></span>
-    <span style="color:#a90d91">server_name</span> <span style="color:#c41a16">_</span>;
-
-    <span style="color:#a90d91">root</span> <span style="color:#c41a16">/opt/app/lib/asciinema-0.0.1/priv/static</span>;
-
-    <span style="color:#a90d91">client_max_body_size</span> <span style="color:#1c01ce">16m</span>;
-
-    <span style="color:#a90d91">location</span> <span style="color:#c41a16">/</span> {
-        <span style="color:#a90d91">try_files</span> <span style="color:#000">$uri</span> <span style="color:#000">$uri/index.html</span> <span style="color:#000">$uri.html</span> <span style="color:#c41a16">@phoenix</span>;
-    }
-
-    <span style="color:#177500"># enable caching of PNG previews
-</span><span style="color:#177500"></span>    <span style="color:#a90d91">location</span> ~ <span style="color:#c41a16">^/a/[^.]+\.png$</span> {
-        <span style="color:#a90d91">proxy_cache</span> <span style="color:#c41a16">png_cache</span>;
-        <span style="color:#a90d91">proxy_cache_revalidate</span> <span style="color:#000">on</span>;
-        <span style="color:#a90d91">proxy_cache_use_stale</span> <span style="color:#c41a16">error</span> <span style="color:#c41a16">timeout</span> <span style="color:#c41a16">updating</span> <span style="color:#c41a16">http_500</span> <span style="color:#c41a16">http_502</span> <span style="color:#c41a16">http_503</span> <span style="color:#c41a16">http_504</span>;
-        <span style="color:#a90d91">proxy_cache_lock</span> <span style="color:#000">on</span>;
-        <span style="color:#a90d91">proxy_cache_key</span> <span style="color:#000">$uri</span>;
-        <span style="color:#a90d91">proxy_ignore_headers</span> <span style="color:#c41a16">Set-Cookie</span>;
-
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Real-IP</span> <span style="color:#000">$remote_addr</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Forwarded-For</span> <span style="color:#000">$proxy_add_x_forwarded_for</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Forwarded-Proto</span> <span style="color:#000">$real_scheme</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">Host</span> <span style="color:#000">$http_host</span>;
-        <span style="color:#a90d91">proxy_pass</span> <span style="color:#c41a16">http://phoenix-server</span>;
-        <span style="color:#a90d91">proxy_redirect</span> <span style="color:#000">off</span>;
-    }
-
-    <span style="color:#177500"># enable caching of digested assets for up to 1 year
-</span><span style="color:#177500"></span>    <span style="color:#a90d91">location</span> ~ <span style="color:#c41a16">&#34;^/(css|js|fonts|images)/.+-[0-9a-f]</span>{<span style="color:#a90d91">32}\.&#34;</span> {
-        <span style="color:#a90d91">expires</span> <span style="color:#c41a16">max</span>;
-        <span style="color:#a90d91">add_header</span> <span style="color:#c41a16">Cache-Control</span> <span style="color:#c41a16">public</span>;
-        <span style="color:#a90d91">add_header</span> <span style="color:#c41a16">ETag</span> <span style="color:#c41a16">&#34;&#34;</span>;
-        <span style="color:#a90d91">try_files</span> <span style="color:#000">$uri</span> <span style="color:#c41a16">@phoenix</span>;
-    }
-
-    <span style="color:#a90d91">location</span> <span style="color:#c41a16">@phoenix</span> {
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Real-IP</span> <span style="color:#000">$remote_addr</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Forwarded-For</span> <span style="color:#000">$proxy_add_x_forwarded_for</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">X-Forwarded-Proto</span> <span style="color:#000">$real_scheme</span>;
-        <span style="color:#a90d91">proxy_set_header</span> <span style="color:#c41a16">Host</span> <span style="color:#000">$http_host</span>;
-        <span style="color:#a90d91">proxy_pass</span> <span style="color:#c41a16">http://phoenix-server</span>;
-        <span style="color:#a90d91">proxy_redirect</span> <span style="color:#000">off</span>;
-    }
-
-    <span style="color:#a90d91">location</span> ~ <span style="color:#c41a16">^/_proxy/asciicasts/(.+)</span> {
-        <span style="color:#a90d91">internal</span>;
-
-        <span style="color:#a90d91">set</span> <span style="color:#000">$redirect_uri</span>      <span style="color:#c41a16">&#34;</span><span style="color:#000">$upstream_http_redirect_uri&#34;</span>;
-        <span style="color:#a90d91">set</span> <span style="color:#000">$cache_key</span>         <span style="color:#c41a16">&#34;</span><span style="color:#000">$1&#34;</span>;
-
-        <span style="color:#a90d91">proxy_cache</span>            <span style="color:#c41a16">cast_cache</span>;
-        <span style="color:#a90d91">proxy_cache_key</span>        <span style="color:#000">$cache_key</span>;
-        <span style="color:#a90d91">proxy_cache_lock</span>       <span style="color:#000">on</span>;
-        <span style="color:#a90d91">proxy_cache_revalidate</span> <span style="color:#000">on</span>;
-        <span style="color:#a90d91">proxy_cache_use_stale</span>  <span style="color:#c41a16">error</span> <span style="color:#c41a16">timeout</span> <span style="color:#c41a16">updating</span> <span style="color:#c41a16">http_500</span> <span style="color:#c41a16">http_502</span> <span style="color:#c41a16">http_503</span> <span style="color:#c41a16">http_504</span>;
-        <span style="color:#a90d91">proxy_cache_valid</span>      <span style="color:#1c01ce">200</span> <span style="color:#1c01ce">304</span> <span style="color:#c41a16">180d</span>;
-
-        <span style="color:#a90d91">resolver</span> <span style="color:#1c01ce">1</span><span style="color:#c41a16">.1.1.1</span>;
-
-        <span style="color:#a90d91">gunzip</span> <span style="color:#000">on</span>;
-
-        <span style="color:#a90d91">proxy_http_version</span>     <span style="color:#1c01ce">1</span><span style="color:#c41a16">.1</span>;
-        <span style="color:#a90d91">proxy_set_header</span>       <span style="color:#c41a16">Connection</span> <span style="color:#c41a16">&#34;&#34;</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-id-2</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-version-id</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-request-id</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-meta-server-side-encryption</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-server-side-encryption</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">x-amz-replication-status</span>;
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">Set-Cookie</span>;
-        <span style="color:#a90d91">proxy_ignore_headers</span>   <span style="color:#c41a16">Set-Cookie</span>;
-        <span style="color:#a90d91">proxy_intercept_errors</span> <span style="color:#000">on</span>;
-
-        <span style="color:#a90d91">add_header</span>             <span style="color:#c41a16">X-Cache-Status</span> <span style="color:#000">$upstream_cache_status</span>;
-        <span style="color:#a90d91">add_header</span>             <span style="color:#c41a16">access-control-allow-origin</span> <span style="color:#c41a16">&#34;*&#34;</span>;
-
-        <span style="color:#a90d91">proxy_hide_header</span>      <span style="color:#c41a16">content-type</span>;
-        <span style="color:#a90d91">add_header</span>             <span style="color:#c41a16">content-type</span> <span style="color:#c41a16">application/x-asciicast</span>;
-
-        <span style="color:#a90d91">gzip_types</span> <span style="color:#c41a16">&#34;*&#34;</span>;
-
-        <span style="color:#a90d91">proxy_pass</span> <span style="color:#000">$redirect_uri</span>;
-    }
-}
-
-<span style="color:#a90d91">gzip</span> <span style="color:#000">on</span>;
-<span style="color:#a90d91">gzip_vary</span> <span style="color:#000">on</span>;
-<span style="color:#a90d91">gzip_proxied</span> <span style="color:#c41a16">any</span>;
-<span style="color:#a90d91">gzip_comp_level</span> <span style="color:#1c01ce">6</span>;
-<span style="color:#a90d91">gzip_buffers</span> <span style="color:#1c01ce">16</span> <span style="color:#1c01ce">8k</span>;
-<span style="color:#a90d91">gzip_types</span> <span style="color:#c41a16">text/plain</span> <span style="color:#c41a16">text/css</span> <span style="color:#c41a16">application/javascript</span> <span style="color:#c41a16">application/x-javascript</span> <span style="color:#c41a16">text/xml</span> <span style="color:#c41a16">application/xml</span> <span style="color:#c41a16">application/xml+rss</span> <span style="color:#c41a16">text/javascript</span> <span style="color:#c41a16">application/json</span> <span style="color:#c41a16">image/svg+xml</span>;
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir asciinema-server <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span><span style="color:#a90d91">cd</span> asciinema-server <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>curl https://raw.githubusercontent.com/asciinema/asciinema-server/master/docker-compose.yml -o docker-compose.yml <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>curl --create-dirs https://raw.githubusercontent.com/asciinema/asciinema-server/master/docker/nginx/asciinema.conf -o docker/nginx/asciinema.conf <span style="color:#000">&amp;&amp;</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>curl https://raw.githubusercontent.com/asciinema/asciinema-server/master/.env.production.sample -o .env.production
 </code></pre></td></tr></table>
 </div>
+</div><p>目录结构如下:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">.
+├── .env.production
+├── docker
+│   └── nginx
+│       └── asciinema.conf
+└── docker-compose.yml
+</code></pre></td></tr></table>
 </div>
+</div><p>在启动私服之前还需要一些数据初始化和修改配置文件的操作。</p>
+<h4 id="初始化数据库">初始化数据库</h4>
+<p>启动数据库:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose up -d postgres
+</code></pre></td></tr></table>
+</div>
+</div><p>创建数据库Scheme和初始数据:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose run --rm phoenix setup
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="修改配置文件">修改配置文件</h4>
+<p>配置文件由以下部分组成:</p>
+<ul>
+<li>私服<code>URL</code>基本配置项</li>
+<li>用来签名<code>Cookie</code>等的<code>Secret Key</code></li>
+<li><code>PostgreSQL</code>数据库连接字符串</li>
+<li><code>Redis</code> 连接字符串</li>
+<li><code>SMTP</code>配置</li>
+<li><code>AWS S3</code>文件存储的配置</li>
+</ul>
+<p>可以根据自己的需要参照配置文件的说明修改对应的配置项。<br>
+这里修改<code>URL_PORT</code>、<code>SECRET_KEY_BASE</code>两项。</p>
+<p>将<code>URL_PORT</code>修改为<code>80</code></p>
+<p><code>SECRET_KEY_BASE</code>通过以下命令获取:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose run --rm phoenix gen_secret
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="smtp配置">SMTP配置</h5>
+<p><code>asciinema</code>私服是一个基于邮件的无密码系统。<br>
+通常，企业内部都会有<code>SMTP</code>服务器，配置文件添加以下配置即可:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#836c28">SMARTHOST_ADDRESS</span><span style="color:#000">=</span><span style="color:#c41a16">mail.mysmtp.com</span>
+<span style="color:#836c28">SMARTHOST_PORT</span><span style="color:#000">=</span><span style="color:#c41a16">587</span>
+<span style="color:#836c28">SMARTHOST_USER</span><span style="color:#000">=</span><span style="color:#c41a16">myuser</span>
+<span style="color:#836c28">SMARTHOST_PASSWORD</span><span style="color:#000">=</span><span style="color:#c41a16">secret</span>
+<span style="color:#836c28">SMARTHOST_ALIASES</span><span style="color:#000">=</span><span style="color:#c41a16">*.mysmtp.com</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果只是在本地测试的话，可以添加<code>GMAIL</code>账号信息中继邮件,并开启<a href="https://myaccount.google.com/u/1/security">允许安全性较低的应用</a>。否则服务收到邮件。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#836c28">GMAIL_USER</span><span style="color:#000">=</span><span style="color:#c41a16">example@gmail.com</span>
+<span style="color:#836c28">GMAIL_PASSWORD</span><span style="color:#000">=</span><span style="color:#c41a16">secret</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当一切就绪，就可以使用<code>docker-compose</code>启动私服。然后在浏览器中访问<a href="http://localhost">http://localhost</a>就可以看到私服的页面了。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose up -d
+</code></pre></td></tr></table>
+</div>
+</div><p>点击页面的<code>Log in/Sign up</code>,输入邮箱地址进行用户的登录或注册。</p>
+<h4 id="系统管理员">系统管理员</h4>
+<p>管理员可以执行以下管理任务：</p>
+<ul>
+<li>编辑，删除任何录制</li>
+<li>使某个录制成为特权</li>
+<li>将录制修改为<code>Public</code>或<code>Private</code></li>
+</ul>
+<h5 id="添加管理员">添加管理员</h5>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose run --rm phoenix admin_add email@example.com
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="删除管理员">删除管理员</h5>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker-compose run --rm phoenix admin_rm email@example.com
+</code></pre></td></tr></table>
+</div>
+</div><p>添加或删除的管理员账户必须事先已经在系统注册过。通过逗号<code>,</code>分隔符可以一次添加或删除多个管理员。</p>
+
   </div>
 
   
