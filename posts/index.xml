@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 09 May 2021 15:23:01 +0900</lastBuildDate><atom:link href="https://failover.fun/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 搭建私服（5/7）</title>
-      <link>https://failover.fun/posts/terminal/asciinema/5-setting-up-private-asciicast-repository/</link>
+      <link>https://failover.fun/posts/terminal/asciinema/setting-up-private-asciicast-repository/</link>
       <pubDate>Sun, 09 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/terminal/asciinema/5-setting-up-private-asciicast-repository/</guid>
+      <guid>https://failover.fun/posts/terminal/asciinema/setting-up-private-asciicast-repository/</guid>
       <description>通常，由于企业内部信息安全策略的原因，不允许将asciicast上传到公共仓库中。
 这个时候可以在企业内部搭建私服来解决存储和分享asciicast的需求。
 硬件需求  单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间  安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。</description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 分享asciicast（4/7）</title>
-      <link>https://failover.fun/posts/terminal/asciinema/4-share-asciicast/</link>
+      <link>https://failover.fun/posts/terminal/asciinema/share-asciicast/</link>
       <pubDate>Sat, 08 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/terminal/asciinema/4-share-asciicast/</guid>
+      <guid>https://failover.fun/posts/terminal/asciinema/share-asciicast/</guid>
       <description>Asciinema有多种分享asciicast的手段。比如，直接分享本地的asciicast文件。
 如果将asciicast上传到仓库的话，无论是公共仓库还是私有仓库，都可以按照以下方式分享。通过点击仓库的Share按钮就可以选择相应的分享方式。
 选项 选项可以调整播放器的行为。
@@ -34,10 +34,10 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
     
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 配置文件（3/7）</title>
-      <link>https://failover.fun/posts/terminal/asciinema/3-configuration-file/</link>
+      <link>https://failover.fun/posts/terminal/asciinema/configuration-file/</link>
       <pubDate>Fri, 07 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/terminal/asciinema/3-configuration-file/</guid>
+      <guid>https://failover.fun/posts/terminal/asciinema/configuration-file/</guid>
       <description>可以为Asciinema提供一个config配置文件。 将其存储到: $HOME/.config/asciinema/config。好处是为命令提供默认值。
 可以使用环境变量来更改存储路径。
 使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
@@ -48,10 +48,10 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
     
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 用法详解（2/7）</title>
-      <link>https://failover.fun/posts/terminal/asciinema/2-usage/</link>
+      <link>https://failover.fun/posts/terminal/asciinema/usage/</link>
       <pubDate>Thu, 06 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/terminal/asciinema/2-usage/</guid>
+      <guid>https://failover.fun/posts/terminal/asciinema/usage/</guid>
       <description>asciinema由rec、play、cat、upload、auth5个子命令组成。
 rec子命令  启动录屏，记录终端会话。
 1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。</description>
@@ -59,10 +59,10 @@ rec子命令  启动录屏，记录终端会话。
     
     <item>
       <title>Asciinema 一个轻量级的终端录屏工具 - 开始使用（1/7）</title>
-      <link>https://failover.fun/posts/terminal/asciinema/1-start-using/</link>
+      <link>https://failover.fun/posts/terminal/asciinema/start-using/</link>
       <pubDate>Wed, 05 May 2021 15:23:01 +0900</pubDate>
       
-      <guid>https://failover.fun/posts/terminal/asciinema/1-start-using/</guid>
+      <guid>https://failover.fun/posts/terminal/asciinema/start-using/</guid>
       <description>Asciinema是一个非常有趣的轻量级终端录屏工具。它和其他录屏软件相比的话显著特点就是轻量级。
 正如它的名字asciinema。它使用字符来记录终端的输入和输出。而其他的录屏软件通常存储的是二进制（专有格式或MP4等）视频格式。
 Asciinema由以下几部分组成：
