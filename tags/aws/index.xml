@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on </title>
+    <link>https://failover.fun/tags/aws/</link>
+    <description>Recent content in AWS on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-ch</language>
+    <lastBuildDate>Thu, 03 Jun 2021 00:20:01 +0900</lastBuildDate><atom:link href="https://failover.fun/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>简单了解AWS</title>
+      <link>https://failover.fun/posts/cloud/aws/understanding/</link>
+      <pubDate>Thu, 03 Jun 2021 00:20:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/posts/cloud/aws/understanding/</guid>
+      <description>因为工作需要。调查了一下AWS。做为笔记内容记录一下。
+主要调查了以下两个部分的内容:
+ AWS提供哪些服务。 如何计费的  </description>
+    </item>
+    
+  </channel>
+</rss>

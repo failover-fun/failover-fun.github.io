@@ -3,7 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://failover.fun/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/aws/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/cloud/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/cloud/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/posts/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/posts/cloud/aws/understanding/</loc>
+    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/tags/asciinema/</loc>
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
@@ -14,12 +35,6 @@
     <loc>https://failover.fun/posts/terminal/asciinema/setting-up-private-asciicast-repository/</loc>
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
-    <loc>https://failover.fun/categories/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/posts/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
     <loc>https://failover.fun/tags/recorder/</loc>
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
@@ -27,9 +42,6 @@
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/series/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/</loc>
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/tags/terminal/</loc>

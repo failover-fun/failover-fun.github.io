@@ -8,3 +8,106 @@
       min-height: 100%;
     }
   }
+
+  .pagination {
+    margin: 20px auto 0
+}
+
+@media (min-width: 768px) {
+    .pagination {
+        margin-top:40px
+    }
+}
+
+.pagination__item {
+    display: inline-block;
+    margin-left: 2.5px;
+    margin-right: 2.5px
+}
+
+.pagination__link {
+    background: #f2f4f6;
+    border-bottom: 3px solid #cbd1d8;
+    color: #394a5c;
+    display: block;
+    font-weight: bold;
+    font-family: "Volkhov", Georgia, Palatino, Garamond, Bookman, sans-serif;
+    padding: 5px 15px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+@media (min-width: 768px) {
+    .pagination__link:hover {
+        background:#fff;
+        border-bottom-color: #bcc2c9
+    }
+}
+
+.pagination__link--first,.pagination__link--previous,.pagination__link--next,.pagination__link--last {
+    background: transparent;
+    border-bottom-color: transparent;
+    color: #9aa2aa
+}
+
+@media (min-width: 768px) {
+    .pagination__link--previous:hover,.pagination__link--next:hover {
+        background:#f2f4f6;
+        border-bottom-color: #cbd1d8
+    }
+}
+
+.pagination__link--current {
+    background: #fff;
+    border-bottom-color: #3182d8;
+    color: #3182d8;
+    cursor: default
+}
+
+@media (min-width: 768px) {
+    .pagination__link--current:hover {
+        border-bottom-color:#3182d8;
+        color: #3182d8
+    }
+}
+
+@media (min-width: 576px) {
+    .pagination__item {
+        margin-left:5px;
+        margin-right: 5px
+    }
+
+    .pagination__link {
+        padding: 10px 20px
+    }
+}
+
+.row__pagination.-has-dark-theme .pagination__link {
+    background-color: #2f3d4c;
+    border-bottom: 3px solid #394a5c
+}
+
+.row__pagination.-has-dark-theme .pagination__link--first,.row__pagination.-has-dark-theme .pagination__link--previous,.row__pagination.-has-dark-theme .pagination__link--next,.row__pagination.-has-dark-theme .pagination__link--last {
+    background: transparent;
+    border-bottom-color: transparent;
+    color: #9aa2aa
+}
+
+@media (min-width: 768px) {
+    .row__pagination.-has-dark-theme .pagination__link:hover {
+        background-color:#25303c;
+        border-bottom-color: #42566c
+    }
+}
+
+.row__pagination.-has-dark-theme .pagination__link--current {
+    background-color: #25303c;
+    border-bottom-color: #3182d8
+}
+
+@media (min-width: 768px) {
+    .row__pagination.-has-dark-theme .pagination__link--current:hover {
+        border-bottom-color:#3182d8
+    }
+}
