@@ -13,7 +13,7 @@
       <pubDate>Thu, 03 Jun 2021 00:20:01 +0900</pubDate>
       
       <guid>https://failover.fun/posts/cloud/aws/understanding/</guid>
-      <description>因为工作需要，研究了一下AWS。
+      <description>最近(因工作需要)，研究了一下AWS。
 主要调查以下两个方向的内容:
  AWS提供哪些服务 如何计费的  想了解AWS，最好的方式就是亲自动手实践和看官方文档。
 但是，AWS提供的服务众多，加上复杂的计费模式，有必要简单梳理一下，方便查阅。
