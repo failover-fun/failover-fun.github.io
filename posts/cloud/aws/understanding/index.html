@@ -23,7 +23,7 @@
 但是，AWS提供的服务众多，加上复杂的计费模式，有必要简单梳理一下，方便查阅。
 服务 &amp; 计费 AWS提供多达100种服务。当第一次看到AWS Ground Station真是不知所措。卫星通讯📡?"><meta itemprop="datePublished" content="2021-06-03T00:20:01&#43;09:00" />
 <meta itemprop="dateModified" content="2021-06-03T00:20:01&#43;09:00" />
-<meta itemprop="wordCount" content="112"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="wordCount" content="127"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="AWS,Cloud," />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -315,17 +315,33 @@
 </ul>
 </li>
 </ul>
-<ol>
-<li><a href="https://blog.csdn.net/fedora18/article/details/44220905">https://blog.csdn.net/fedora18/article/details/44220905</a></li>
-<li><a href="https://aws.amazon.com/cn/ec2/instance-types/">https://aws.amazon.com/cn/ec2/instance-types/</a></li>
-<li><a href="https://www.bookstack.cn/read/awschina/f058468483eeed7f.md">https://www.bookstack.cn/read/awschina/f058468483eeed7f.md</a></li>
-<li><a href="https://cloud.google.com/compute/docs/machine-types">https://cloud.google.com/compute/docs/machine-types</a></li>
-<li><a href="https://s3.cn-north-1.amazonaws.com.cn/videos-localize/Amazon+EC2%E5%AE%9E%E4%BE%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.pdf">https://s3.cn-north-1.amazonaws.com.cn/videos-localize/Amazon+EC2%E5%AE%9E%E4%BE%8B%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.pdf</a></li>
-<li><a href="https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-instances-and-amis.html">https://docs.aws.amazon.com/zh_cn/AWSEC2/latest/UserGuide/ec2-instances-and-amis.html</a></li>
-<li><a href="https://aws.amazon.com/cn/ec2/spot/pricing/">https://aws.amazon.com/cn/ec2/spot/pricing/</a></li>
-<li><a href="https://www.utubon.com/post/3508.html">https://www.utubon.com/post/3508.html</a></li>
-<li><a href="https://www.duyidong.com/2017/03/15/AWS-EC2/">https://www.duyidong.com/2017/03/15/AWS-EC2/</a></li>
-</ol>
+<h4 id="实例类型">实例类型</h4>
+<p>为了满足企业在不同场景下灵活使用计算资源的需求，AWS将EC2分为五种实例类型:</p>
+<ul>
+<li><a href="https://aws.amazon.com/cn/ec2/instance-types/#General_Purpose">通用型</a></li>
+<li><a href="https://aws.amazon.com/cn/ec2/instance-types/#Compute_Optimized">计算优化型</a></li>
+<li><a href="https://aws.amazon.com/ec2/instance-types/#Memory_Optimized">内存优化型</a></li>
+<li><a href="https://aws.amazon.com/ec2/instance-types/#Accelerated_Computing">加速计算型</a></li>
+<li><a href="https://aws.amazon.com/ec2/instance-types/#Storage_Optimized">存储优化型</a></li>
+</ul>
+<p>每一种类型又分为不同的尺寸。根据CPU架构，又可以分为<code>x86</code>架构和<code>arm</code>架构的。<br>
+通常情况下，如果你的服务与CPU架构无关的话，尽量选择<code>arm</code>架构的实例，因为它比<code>x86</code>架构要便宜。<br>
+当然，你也应该面临一些挑战。就比如说，如果使用<code>Docker</code>分发你的服务，你应当构建一个<code>arm</code>架构的镜像。参考: <a href="https://docs.docker.com/buildx/working-with-buildx/">docker buildx</a>。</p>
+<p>至于究竟应该选择哪种类型，这需要结合业务来决定。</p>
+<h4 id="定价规则">定价规则</h4>
+<p>关于定价规则，EC2提供了一种免费套餐和五种付费方式。</p>
+<ul>
+<li><a href="https://aws.amazon.com/cn/free/">免费套餐</a></li>
+<li>付费
+<ul>
+<li><a href="https://aws.amazon.com/cn/ec2/pricing/on-demand/">按需</a></li>
+<li><a href="https://aws.amazon.com/cn/ec2/spot/">Spot 实例</a></li>
+<li><a href="https://aws.amazon.com/cn/savingsplans/">Savings Plans</a></li>
+<li><a href="https://aws.amazon.com/cn/ec2/pricing/reserved-instances/">预留实例</a></li>
+<li><a href="https://aws.amazon.com/cn/ec2/dedicated-hosts/">专用主机</a></li>
+</ul>
+</li>
+</ul>
 
   </div>
 
