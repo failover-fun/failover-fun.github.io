@@ -2,25 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://failover.fun/tags/aws/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
     <loc>https://failover.fun/categories/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/homebrew/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/posts/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/terminal/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/terminal/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/tools/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/</loc>
+    <lastmod>2021-08-12T14:18:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/aws/</loc>
     <lastmod>2021-06-03T00:20:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/tags/cloud/</loc>
     <lastmod>2021-06-03T00:20:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/categories/cloud/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/posts/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/</loc>
     <lastmod>2021-06-03T00:20:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/posts/cloud/aws/understanding/</loc>
@@ -39,15 +54,6 @@
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/series/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/terminal/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/categories/terminal/</loc>
-    <lastmod>2021-05-09T15:23:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/tools/</loc>
     <lastmod>2021-05-09T15:23:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/posts/terminal/asciinema/share-asciicast/</loc>

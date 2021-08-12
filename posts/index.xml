@@ -6,7 +6,18 @@
     <description>Recent content in Posts on failover.fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Thu, 03 Jun 2021 00:20:01 +0900</lastBuildDate><atom:link href="https://failover.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Aug 2021 14:18:01 +0900</lastBuildDate><atom:link href="https://failover.fun/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Homebrew管理MacOS软件</title>
+      <link>https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/</link>
+      <pubDate>Thu, 12 Aug 2021 14:18:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/</guid>
+      <description>介绍 Homebrew是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。
+Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。
+这里我将着重和你分享在MacOS平台下如何使用Homebrew。如果你对在Linux和Windows Subsystem for Linux下使用Homebrew感兴趣的话，请参照官方文档，在这里有详细的说明。</description>
+    </item>
+    
     <item>
       <title>简记AWS</title>
       <link>https://failover.fun/posts/cloud/aws/understanding/</link>

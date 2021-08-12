@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-ch" lang="zh-ch">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="apple-mobile-web-app-title" content="Fi.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <title>使用Homebrew管理MacOS软件 &middot; failover.fun</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="使用Homebrew管理MacOS软件">
+<meta itemprop="description" content="介绍 Homebrew是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。
+Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。
+这里我将着重和你分享在MacOS平台下如何使用Homebrew。如果你对在Linux和Windows Subsystem for Linux下使用Homebrew感兴趣的话，请参照官方文档，在这里有详细的说明。"><meta itemprop="datePublished" content="2021-08-12T14:18:01&#43;09:00" />
+<meta itemprop="dateModified" content="2021-08-12T14:18:01&#43;09:00" />
+<meta itemprop="wordCount" content="921"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+<meta itemprop="keywords" content="Homebrew,Terminal,Tools," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
+
+<meta name="twitter:title" content="使用Homebrew管理MacOS软件"/>
+<meta name="twitter:description" content="介绍 Homebrew是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。
+Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。
+这里我将着重和你分享在MacOS平台下如何使用Homebrew。如果你对在Linux和Windows Subsystem for Linux下使用Homebrew感兴趣的话，请参照官方文档，在这里有详细的说明。"/>
+
+
+<meta property="og:title" content="使用Homebrew管理MacOS软件" />
+<meta property="og:description" content="介绍 Homebrew是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。
+Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。
+这里我将着重和你分享在MacOS平台下如何使用Homebrew。如果你对在Linux和Windows Subsystem for Linux下使用Homebrew感兴趣的话，请参照官方文档，在这里有详细的说明。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/" /><meta property="og:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-12T14:18:01&#43;09:00" />
+<meta property="article:modified_time" content="2021-08-12T14:18:01&#43;09:00" />
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type":"Person",
+      "@id": "https://failover.fun#author",
+      "name":  null ,
+      "image": {
+        "@type":"ImageObject",
+        
+        "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png"
+        
+      },
+      "description":  null 
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://failover.fun#website",
+      "url": "https://failover.fun",
+      "name": "failover.fun",
+      "description":  null ,
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "inLanguage": "zh-ch"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://failover.fun/assets/favicon/android-chrome-512x512.png",
+      "caption": "failover.fun"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/#webpage",
+      "url": "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/",
+      "name": "使用Homebrew管理MacOS软件",
+      "isPartOf": {
+        "@id": "https://failover.fun#website"
+      },
+      "about": {
+         "@id": "https://failover.fun#author"
+      },
+      "datePublished": "2021-08-12T14:18:01+09:00",
+      "dateModified": "2021-08-12T14:18:01+09:00",
+      "description": "介绍 Homebrew是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。\nHomebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。\n这里我将着重和你分享在MacOS平台下如何使用Homebrew。如果你对在Linux和Windows Subsystem for Linux下使用Homebrew感兴趣的话，请参照官方文档，在这里有详细的说明。",
+      "inLanguage": "zh-ch",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "isPartOf": {
+        "@id": "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/#webpage"
+      },
+      "headline": "使用Homebrew管理MacOS软件",
+      "datePublished": "2021-08-12T14:18:01+09:00",
+      "dateModified": "2021-08-12T14:18:01+09:00",
+      "publisher": {
+        "@id": "https://failover.fun#author"
+      },
+      "keywords": [
+        "Homebrew",
+        "Terminal",
+        "Tools"
+      ],
+      "articleSection": [
+        "Terminal"
+      ],
+      "inLanguage": "zh-ch",
+      "author": {
+        "@type": "Person",
+        "name":  null 
+      },
+      "potentialAction": [
+        {
+          "@type": "CommentAction",
+          "name": "Comment",
+          "target": [
+            "https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/#comments"
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+
+  <link rel="manifest" href="/manifest.json">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+<style type="text/css">
+  .sidebar {
+    background-color: #05aa55;
+  }
+
+  .read-more-link a {
+    border-color: #05aa55;
+  }
+
+  .read-more-link a:hover {
+    background-color: #05aa55;
+  }
+
+  .pagination li a {
+    color: #05aa55;
+    border: 1px solid #05aa55;
+  }
+
+  .pagination li.active a {
+    background-color: #05aa55;
+  }
+
+  .pagination li a:hover {
+    background-color: #05aa55;
+    opacity: 0.75;
+  }
+
+  footer a,
+  .content a,
+  .related-posts li a:hover {
+    color: #05aa55;
+  }
+</style>
+
+
+
+  <link type="text/css" rel="stylesheet" href="/css/blog.css">
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="https://failover.fun">
+            <img src="/assets/favicon/android-chrome-512x512.png" class="img-circle img-headshot center" alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+    
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="https://failover.fun">Home</a>
+        </li>
+        <li>
+          <a href="/posts/">Posts</a>
+        </li><li>
+          <a href="/categories/">Categories</a>
+        </li><li>
+          <a href="/series/">Series</a>
+        </li><li>
+          <a href="/tags/">Tags</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1 class="title">使用Homebrew管理MacOS软件</h1>
+  
+
+  <div class="post-date">
+    <time datetime="2021-08-12T14:18:01&#43;0900">2021-08-12</time> 
+    
+  </div>
+
+  <div>
+  <h1 id="介绍">介绍</h1>
+<p><a href="https://brew.sh/index_zh-cn">Homebrew</a>是MacOS平台的包管理工具，你可以使用它来轻松的管理软件包的安装、卸载、更新等。它会帮助你解决各种依赖和文件路径的问题。</p>
+<p><a href="https://brew.sh/index_zh-cn">Homebrew</a>不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也可以使用。</p>
+<p>这里我将着重和你分享在MacOS平台下如何使用<a href="https://brew.sh/index_zh-cn">Homebrew</a>。如果你对在Linux和Windows Subsystem for Linux下使用<a href="https://brew.sh/index_zh-cn">Homebrew</a>感兴趣的话，请参照官方文档，在<a href="https://docs.brew.sh/Homebrew-on-Linux">这里</a>有详细的说明。</p>
+<p>我会和你分享如下几个主题：</p>
+<ul>
+<li>安装<a href="https://brew.sh/index_zh-cn">Homebrew</a></li>
+<li>使用<a href="https://brew.sh/index_zh-cn">Homebrew</a>管理软件包</li>
+<li>图形化管理Brew</li>
+<li>使用Brew备份软件清单</li>
+</ul>
+<h1 id="安装homebrew">安装Homebrew</h1>
+<p>Homebrew的安装非常简单，你只需要一个命令就可以完成安装。你在官网的<a href="https://brew.sh/">首页</a>上也能看到这个安装命令。打开你的终端执行它:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ /bin/bash -c <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>安装完成后，你可以使用下面命令来确认安装的版本</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew -v
+Homebrew 2.2.12
+Homebrew/homebrew-core <span style="color:#000">(</span>git revision ed33a; last commit 2020-04-12<span style="color:#000">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>好了，至此我们已经完成了Homebrew的安装。是不是特别简单。</p>
+<script id="asciicast-wHtzlGU3smqgOnhaC7CcplIgj" src="https://asciinema.org/a/wHtzlGU3smqgOnhaC7CcplIgj.js" async></script>
+<h1 id="使用homebrew管理软件">使用Homebrew管理软件</h1>
+<p>Brew使用将软件包分为两种类型来管理，一种是终端命令，另一种是图形化软件。</p>
+<p>让我们分别演示如何操作。</p>
+<h3 id="安装命令">安装命令</h3>
+<p>如果想安装一个wget，可以直接使用<code>install</code>来安装。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew install wget
+</code></pre></td></tr></table>
+</div>
+</div><p>但是，安装之前可以使用<code>search</code>和<code>info</code>来搜索和查看这个命令</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew search <span style="color:#000">wget</span>
+<span style="color:#000">==</span>&gt; Formulae
+wget                    wgetpaste
+</code></pre></td></tr></table>
+</div>
+</div><p>你看这里搜索到两个包含<code>wget</code>关键字的命令。
+我们可以使用<code>info</code>来查看某个命令的详细信息。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew info wget
+wget: stable 1.20.3 <span style="color:#000">(</span>bottled<span style="color:#000">)</span>, HEAD
+Internet file retriever
+https://www.gnu.org/software/wget/
+Not installed
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/wget.rb
+<span style="color:#000">==</span>&gt; Dependencies
+Build: pkg-config ✘
+Required: libidn2 ✘, openssl@1.1 ✔
+<span style="color:#000">==</span>&gt; Options
+--HEAD
+	Install HEAD <span style="color:#000">version</span>
+<span style="color:#000">==</span>&gt; Analytics
+install: 105,915 <span style="color:#000">(</span><span style="color:#1c01ce">30</span> days<span style="color:#000">)</span>, 317,104 <span style="color:#000">(</span><span style="color:#1c01ce">90</span> days<span style="color:#000">)</span>, 1,366,851 <span style="color:#000">(</span><span style="color:#1c01ce">365</span> days<span style="color:#000">)</span>
+install-on-request: 102,323 <span style="color:#000">(</span><span style="color:#1c01ce">30</span> days<span style="color:#000">)</span>, 305,340 <span style="color:#000">(</span><span style="color:#1c01ce">90</span> days<span style="color:#000">)</span>, 1,285,029 <span style="color:#000">(</span><span style="color:#1c01ce">365</span> days<span style="color:#000">)</span>
+build-error: <span style="color:#1c01ce">0</span> <span style="color:#000">(</span><span style="color:#1c01ce">30</span> days<span style="color:#000">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里你能看到这个命令的版本、官网地址、依赖项、统计分析。
+其中，依赖项中显示<code>✘</code>的表示在本机还没有安装这个库文件等。之后，安装这个wget命令的时候brew会帮助你处理这些依赖。而需你担心它们。</p>
+<p>好的，让我们来安装它。超简单。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew install wget
+Updating Homebrew...
+<span style="color:#000">==</span>&gt; Auto-updated Homebrew!
+Updated <span style="color:#1c01ce">1</span> tap <span style="color:#000">(</span>homebrew/core<span style="color:#000">)</span>.
+<span style="color:#000">==</span>&gt; Updated Formulae
+azcopy                                            codequery                                         link-grammar
+
+<span style="color:#000">==</span>&gt; Installing dependencies <span style="color:#a90d91">for</span> wget: gettext, libunistring and <span style="color:#000">libidn2</span>
+<span style="color:#000">==</span>&gt; Installing wget dependency: <span style="color:#000">gettext</span>
+<span style="color:#000">==</span>&gt; Downloading https://homebrew.bintray.com/bottles/gettext-0.20.1.catalina.bottle.tar.gz
+<span style="color:#000">==</span>&gt; Downloading from https://akamai.bintray.com/10/107d7f386fbeea6979f9376cdbbcf3f60943caaad61bdc754d3019ce625dffe6?__gda__<span style="color:#000">=</span><span style="color:#000">exp</span><span style="color:#000">=</span>1586694510~hmac<span style="color:#000">=</span>ccc067
+<span style="color:#177500">######################################################################## 100.0%</span>
+<span style="color:#000">==</span>&gt; Pouring gettext-0.20.1.catalina.bottle.tar.gz
+<span style="color:#000">==</span>&gt; Caveats
+gettext is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides BSD gettext.
+
+If you need to have gettext first in your PATH run:
+  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;export PATH=&#34;/usr/local/opt/gettext/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+
+For compilers to find gettext you may need to set:
+  <span style="color:#a90d91">export</span> <span style="color:#000">LDFLAGS</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;-L/usr/local/opt/gettext/lib&#34;</span>
+  <span style="color:#a90d91">export</span> <span style="color:#000">CPPFLAGS</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;-I/usr/local/opt/gettext/include&#34;</span>
+
+<span style="color:#000">==</span>&gt; Summary
+🍺  /usr/local/Cellar/gettext/0.20.1: 1,893 files, 18.4MB
+<span style="color:#000">==</span>&gt; Installing wget dependency: <span style="color:#000">libunistring</span>
+<span style="color:#000">==</span>&gt; Downloading https://homebrew.bintray.com/bottles/libunistring-0.9.10.catalina.bottle.tar.gz
+<span style="color:#000">==</span>&gt; Downloading from https://akamai.bintray.com/ce/ce746662b98d93511b86920011b5cafcd2eecbce4c9c40d8c52a143cdf708456?__gda__<span style="color:#000">=</span><span style="color:#000">exp</span><span style="color:#000">=</span>1586694526~hmac<span style="color:#000">=</span>e67bdd
+<span style="color:#177500">######################################################################## 100.0%</span>
+<span style="color:#000">==</span>&gt; Pouring libunistring-0.9.10.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/libunistring/0.9.10: <span style="color:#1c01ce">54</span> files, 4.4MB
+<span style="color:#000">==</span>&gt; Installing wget dependency: <span style="color:#000">libidn2</span>
+<span style="color:#000">==</span>&gt; Downloading https://homebrew.bintray.com/bottles/libidn2-2.3.0.catalina.bottle.tar.gz
+<span style="color:#000">==</span>&gt; Downloading from https://akamai.bintray.com/09/0908585cca518a83f101b2edc0417a26a4b4fc8b76e393c6f6672de6e595c914?__gda__<span style="color:#000">=</span><span style="color:#000">exp</span><span style="color:#000">=</span>1586694530~hmac<span style="color:#000">=</span>c7c038
+<span style="color:#177500">######################################################################## 100.0%</span>
+<span style="color:#000">==</span>&gt; Pouring libidn2-2.3.0.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/libidn2/2.3.0: <span style="color:#1c01ce">70</span> files, 727.8KB
+<span style="color:#000">==</span>&gt; Installing <span style="color:#000">wget</span>
+<span style="color:#000">==</span>&gt; Downloading https://homebrew.bintray.com/bottles/wget-1.20.3_2.catalina.bottle.tar.gz
+<span style="color:#000">==</span>&gt; Downloading from https://akamai.bintray.com/ef/ef65c759c5097a36323fa9c77756468649e8d1980a3a4e05695c05e39568967c?__gda__<span style="color:#000">=</span><span style="color:#000">exp</span><span style="color:#000">=</span>1586694533~hmac<span style="color:#000">=</span>e66b1b
+<span style="color:#177500">######################################################################## 100.0%</span>
+<span style="color:#000">==</span>&gt; Pouring wget-1.20.3_2.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/wget/1.20.3_2: <span style="color:#1c01ce">50</span> files, 4.0MB
+<span style="color:#000">==</span>&gt; <span style="color:#000">Caveats</span>
+<span style="color:#000">==</span>&gt; gettext
+gettext is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides BSD gettext.
+
+If you need to have gettext first in your PATH run:
+  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;export PATH=&#34;/usr/local/opt/gettext/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.zshrc
+
+For compilers to find gettext you may need to set:
+  <span style="color:#a90d91">export</span> <span style="color:#000">LDFLAGS</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;-L/usr/local/opt/gettext/lib&#34;</span>
+  <span style="color:#a90d91">export</span> <span style="color:#000">CPPFLAGS</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;-I/usr/local/opt/gettext/include&#34;</span>
+
+➜  ~
+➜  ~ wget -S -nv https://www.examples.com -O /dev/null
+Warning: Failed to <span style="color:#a90d91">set</span> locale category LC_NUMERIC to zh_Hans_JP.
+Warning: Failed to <span style="color:#a90d91">set</span> locale category LC_TIME to zh_Hans_JP.
+Warning: Failed to <span style="color:#a90d91">set</span> locale category LC_COLLATE to zh_Hans_JP.
+Warning: Failed to <span style="color:#a90d91">set</span> locale category LC_MONETARY to zh_Hans_JP.
+  HTTP/1.1 <span style="color:#1c01ce">200</span> OK
+  Content-Type: text/html
+  Server: nginx
+  Last-Modified: Sun, <span style="color:#1c01ce">12</span> Apr <span style="color:#1c01ce">2020</span> 12:30:02 GMT
+  ETag: W/<span style="color:#c41a16">&#34;5e9309ca-6213&#34;</span>
+  X-Frame-Options: SAMEORIGIN
+  Content-Encoding: gzip
+  Via: 1.1 varnish
+  Cache-Control: max-age<span style="color:#000">=</span>31536000, public
+  Access-Control-Allow-Origin: *
+  Content-Length: <span style="color:#1c01ce">5751</span>
+  Accept-Ranges: bytes
+  Date: Sun, <span style="color:#1c01ce">12</span> Apr <span style="color:#1c01ce">2020</span> 12:30:32 GMT
+  Via: 1.1 varnish
+  Age: <span style="color:#1c01ce">29</span>
+  Connection: keep-alive
+  X-Served-By: cache-lax8622-LAX, cache-tyo19925-TYO
+  X-Cache: HIT, MISS
+  X-Cache-Hits: 2, <span style="color:#1c01ce">0</span>
+  X-Timer: S1586694632.057470,VS0,VE106
+  Vary: Accept-Encoding
+  Strict-Transport-Security: max-age<span style="color:#000">=</span><span style="color:#1c01ce">900</span>
+
+<span style="color:#177500">### 2020-04-12 21:30:32 URL:https://www.examples.com/ [5751/5751] -&gt; &#34;/dev/null&#34; [1]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>卸载命令
+卸载也很简单</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew uninstall wget
+Uninstalling /usr/local/Cellar/wget/1.20.3_2... <span style="color:#000">(</span><span style="color:#1c01ce">50</span> files, 4.0MB<span style="color:#000">)</span>
+➜  ~
+➜  ~
+➜  ~ wget -S -nv https://www.examples.com -O /dev/null
+zsh: <span style="color:#a90d91">command</span> not found: wget
+➜  ~
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="安装软件">安装软件</h3>
+<p>如果安装一个软件，你要使用<code>cask</code>子命令。</p>
+<p>让我们试着安装atom。首先，我们使用试着搜索一下。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew search <span style="color:#000">atom</span>
+<span style="color:#000">==</span>&gt; Formulae
+atomicparsley                        atomist-cli                          libatomic_ops                        <span style="color:#000">sratom</span>
+<span style="color:#000">==</span>&gt; Casks
+homebrew/cask-versions/atom-beta                  homebrew/cask-versions/atom-nightly               homebrew/cask/atom
+</code></pre></td></tr></table>
+</div>
+</div><p>查询到很多，我们试着看一下<code>homebrew/cask/atom</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew cask info homebrew/cask/atom
+<span style="color:#000">==</span>&gt; Tapping homebrew/cask
+Cloning into <span style="color:#c41a16">&#39;/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask&#39;</span>...
+remote: Enumerating objects: 7, <span style="color:#a90d91">done</span>.
+remote: Counting objects: 100% <span style="color:#000">(</span>7/7<span style="color:#000">)</span>, <span style="color:#a90d91">done</span>.
+remote: Compressing objects: 100% <span style="color:#000">(</span>7/7<span style="color:#000">)</span>, <span style="color:#a90d91">done</span>.
+remote: Total <span style="color:#1c01ce">426061</span> <span style="color:#000">(</span>delta 2<span style="color:#000">)</span>, reused <span style="color:#1c01ce">0</span> <span style="color:#000">(</span>delta 0<span style="color:#000">)</span>, pack-reused <span style="color:#1c01ce">426054</span>
+Receiving objects: 100% <span style="color:#000">(</span>426061/426061<span style="color:#000">)</span>, 192.50 MiB | 911.00 KiB/s, <span style="color:#a90d91">done</span>.
+Resolving deltas: 100% <span style="color:#000">(</span>301262/301262<span style="color:#000">)</span>, <span style="color:#a90d91">done</span>.
+Tapped <span style="color:#1c01ce">1</span> <span style="color:#a90d91">command</span> and <span style="color:#1c01ce">3524</span> casks <span style="color:#000">(</span>3,639 files, 206.6MB<span style="color:#000">)</span>.
+atom: 1.45.0 <span style="color:#000">(</span>auto_updates<span style="color:#000">)</span>
+https://atom.io/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/atom.rb
+</code></pre></td></tr></table>
+</div>
+</div><p>这是我想要的，我们安装它</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew cask install homebrew/cask/atom
+<span style="color:#000">==</span>&gt; Downloading https://github.com/atom/atom/releases/download/v1.45.0/atom-mac.zip
+<span style="color:#000">==</span>&gt; Downloading from https://github-production-release-asset-2e65be.s3.amazonaws.com/3228505/e28afd00-6304-11ea-8ac4-8b3de4863926?X-Amz-Algorithm<span style="color:#000">=</span>AW
+<span style="color:#177500">######################################################################## 100.0%</span>
+<span style="color:#000">==</span>&gt; Verifying SHA-256 checksum <span style="color:#a90d91">for</span> Cask <span style="color:#c41a16">&#39;atom&#39;</span>.
+<span style="color:#000">==</span>&gt; Installing Cask <span style="color:#000">atom</span>
+<span style="color:#000">==</span>&gt; Moving App <span style="color:#c41a16">&#39;Atom.app&#39;</span> to <span style="color:#c41a16">&#39;/Applications/Atom.app&#39;</span>.
+<span style="color:#000">==</span>&gt; Linking Binary <span style="color:#c41a16">&#39;apm&#39;</span> to <span style="color:#c41a16">&#39;/usr/local/bin/apm&#39;</span>.
+<span style="color:#000">==</span>&gt; Linking Binary <span style="color:#c41a16">&#39;atom.sh&#39;</span> to <span style="color:#c41a16">&#39;/usr/local/bin/atom&#39;</span>.
+🍺  atom was successfully installed!
+</code></pre></td></tr></table>
+</div>
+</div><p>就这么简单，你可以使用atom了。</p>
+<h3 id="卸载软件">卸载软件</h3>
+<p>卸载也简单</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew cask uninstall atom
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="更新软件包">更新软件包</h3>
+<p>你用以下命令就可以更新brew管理的软件包了</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew update
+Already up-to-date.
+➜  ~ brew upgrade
+➜  ~ brew cask <span style="color:#000">upgrade</span>
+<span style="color:#000">==</span>&gt; No Casks to upgrade
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-aogFAmrX3q4M2TiYU2oRdgIgm" src="https://asciinema.org/a/aogFAmrX3q4M2TiYU2oRdgIgm.js" async></script>
+<h1 id="图形化管理brew">图形化管理Brew</h1>
+<p>这里有一个图形化的brew管理工具，你用下面的命令安装之后可以自行探索。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew cask install cakebrew
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://www.cakebrew.com/assets/img/item-01@2x.png" alt="cakebrew"></p>
+<h1 id="使用brew备份软件清单">使用Brew备份软件清单</h1>
+<p>你现在有一个很好的包管理工具，它能帮了你的大忙。</p>
+<p>如果你想重新安装MacOS，或者你更换了新的MacBook的话，这该怎么办。电脑已经装了很多的命令工具和软件。</p>
+<p>好了。Brew又再次出手帮你拜托这些繁琐的安装步骤。</p>
+<p>我们使用<code>brew bundle</code>来帮助我们完成软件包的备份和还原。</p>
+<p>首先，我希望备份更彻底，因为有些软件不是通过brew安装的。而是通过Mac App Store。所以，我们希望brew bundle备份的时候也将Mac App Store安装的软件一同备份。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew install mas
+</code></pre></td></tr></table>
+</div>
+</div><p>完成安装，你就可以备份了。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew bundle dump
+</code></pre></td></tr></table>
+</div>
+</div><p>就是这样，它在执行命令的当前路径生成一个Brewfile文件，这个就是brew备份的软件清单。之后我们需要使用这个清单文件进行还原。
+让我们看看它是什么样子。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ cat Brewfile
+tap <span style="color:#c41a16">&#34;caskroom/cask&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/bundle&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/cask&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/cask-drivers&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/cask-versions&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/core&#34;</span>
+tap <span style="color:#c41a16">&#34;homebrew/services&#34;</span>
+brew <span style="color:#c41a16">&#34;ansible&#34;</span>
+brew <span style="color:#c41a16">&#34;tldr&#34;</span>
+brew <span style="color:#c41a16">&#34;tmux&#34;</span>
+brew <span style="color:#c41a16">&#34;tree&#34;</span>
+brew <span style="color:#c41a16">&#34;typescript&#34;</span>
+brew <span style="color:#c41a16">&#34;webpack&#34;</span>
+brew <span style="color:#c41a16">&#34;wget&#34;</span>
+cask <span style="color:#c41a16">&#34;cakebrew&#34;</span>
+cask <span style="color:#c41a16">&#34;dash&#34;</span>
+cask <span style="color:#c41a16">&#34;intellij-idea&#34;</span>
+cask <span style="color:#c41a16">&#34;iterm2&#34;</span>
+mas <span style="color:#c41a16">&#34;Slack&#34;</span>, id: <span style="color:#1c01ce">803453959</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这是我之前的一个备份。之后，我们就可以使用brew bundle来还原了。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ brew bundle 
+➜  ~ <span style="color:#177500"># Or brew bundle --file /path/to/Brewfile</span>
+</code></pre></td></tr></table>
+</div>
+</div><script id="asciicast-v7KxT3Lmfcryv1e4oq23oFRNX" src="https://asciinema.org/a/v7KxT3Lmfcryv1e4oq23oFRNX.js" async></script>
+
+  </div>
+
+  
+<div>
+  <ul class="tags">
+  <li>
+    <a href="https://failover.fun/tags/homebrew/" class="tag-link">Homebrew</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/terminal/" class="tag-link">Terminal</a>
+  </li>
+  
+  <li>
+    <a href="https://failover.fun/tags/tools/" class="tag-link">Tools</a>
+  </li>
+  </ul>
+</div>
+
+
+
+  
+
+  <script src="https://utteranc.es/client.js"
+        repo= 'failover-fun/blog-comment'
+        issue-term= "pathname"
+        theme= 'github-light'
+        crossorigin= "anonymous"
+        async>
+    </script>
+ 
+</div>
+  </main>
+
+  <footer>
+  <div>
+    <p>
+      &copy; failover.fun 2021
+
+      
+
+      
+    </p>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/soho.js"></script>
+
+  
+
+  
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HB3ZLXTY9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-8HB3ZLXTY9', { 'anonymize_ip': false });
+}
+</script>
+
+  
+</body>
+</html>
