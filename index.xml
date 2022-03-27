@@ -6,7 +6,19 @@
     <description>Recent content on failover.fun</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Thu, 12 Aug 2021 14:18:01 +0900</lastBuildDate><atom:link href="https://failover.fun/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 21:17:43 +0900</lastBuildDate><atom:link href="https://failover.fun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Molecule测试Ansible Role</title>
+      <link>https://failover.fun/posts/devops/test-the-ansible-role-with-molecule/</link>
+      <pubDate>Sat, 26 Mar 2022 21:17:43 +0900</pubDate>
+      
+      <guid>https://failover.fun/posts/devops/test-the-ansible-role-with-molecule/</guid>
+      <description>什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
+可以参考一下官网的介绍。
+如何安装 安装Molecule需要:
+ Python&amp;gt;=3.8 Ansible&amp;gt;=2.</description>
+    </item>
+    
     <item>
       <title>使用Homebrew管理MacOS软件</title>
       <link>https://failover.fun/posts/terminal/homebrew/using-homebrew-to-manage-macos-software/</link>
