@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home-lab on failover.fun</title>
+    <link>https://failover.fun/tags/home-lab/</link>
+    <description>Recent content in Home-lab on failover.fun</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-ch</language>
+    <lastBuildDate>Wed, 24 May 2023 00:10:01 +0900</lastBuildDate><atom:link href="https://failover.fun/tags/home-lab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>All in One - 搭建你自己的私有云</title>
+      <link>https://failover.fun/posts/cloud/home-lab/build-your-own-private-cloud/</link>
+      <pubDate>Wed, 24 May 2023 00:10:01 +0900</pubDate>
+      
+      <guid>https://failover.fun/posts/cloud/home-lab/build-your-own-private-cloud/</guid>
+      <description>背景  想掌管自己的数据！ 对云端服务产生信任危机！
+ 本人日常使用最多的就三类云服务软件。
+ 清单类 笔记类 云盘类  依赖度最高的就是云盘类软件。备份个手机照片和视频可是相当的方便。然而，对云服务的信任危机也是由它而起。</description>
+    </item>
+    
+  </channel>
+</rss>

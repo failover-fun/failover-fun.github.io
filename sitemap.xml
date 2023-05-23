@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://failover.fun/tags/ansible/</loc>
-    <lastmod>2022-03-27T21:17:43+09:00</lastmod>
+    <loc>https://failover.fun/posts/cloud/home-lab/build-your-own-private-cloud/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/categories/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/cloud/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/categories/cloud/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/home-lab/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/posts/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/</loc>
+    <lastmod>2023-05-24T00:10:01+09:00</lastmod>
+  </url><url>
+    <loc>https://failover.fun/tags/ansible/</loc>
     <lastmod>2022-03-27T21:17:43+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/categories/devops/</loc>
     <lastmod>2022-03-27T21:17:43+09:00</lastmod>
   </url><url>
-    <loc>https://failover.fun/</loc>
-    <lastmod>2022-03-27T21:17:43+09:00</lastmod>
-  </url><url>
     <loc>https://failover.fun/tags/molecule/</loc>
-    <lastmod>2022-03-27T21:17:43+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/posts/</loc>
-    <lastmod>2022-03-27T21:17:43+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/</loc>
     <lastmod>2022-03-27T21:17:43+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/posts/devops/test-the-ansible-role-with-molecule/</loc>
@@ -42,12 +54,6 @@
     <lastmod>2021-08-12T14:18:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/tags/aws/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/tags/cloud/</loc>
-    <lastmod>2021-06-03T00:20:01+09:00</lastmod>
-  </url><url>
-    <loc>https://failover.fun/categories/cloud/</loc>
     <lastmod>2021-06-03T00:20:01+09:00</lastmod>
   </url><url>
     <loc>https://failover.fun/posts/cloud/aws/understanding/</loc>
