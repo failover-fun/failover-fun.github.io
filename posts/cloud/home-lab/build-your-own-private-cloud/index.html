@@ -529,9 +529,9 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 </div><p>这是 <code>LXD</code> 的初始化过程。
 有几个注意点:</p>
 <ul>
-<li><code>Would you like to create a new local network bridge? (yes/no) [default=yes]: no</code>
+<li><code>Would you like to create a new local network bridge? (yes/no) [default=yes]: no</code><br>
 因为已经创建了从 <code>DHCP</code> 自动分配 <code>IP</code> 的网桥 <code>br0</code>，所以，不要用 <code>LXD</code> 创建的网桥。之后，询问网桥时，填入 <code>br0</code> 就可以了。</li>
-<li><code>Would you like the LXD server to be available over the network?</code>
+<li><code>Would you like the LXD server to be available over the network?</code><br>
 这个直接填 yes 打开。之后装 UI 用。</li>
 </ul>
 <h3 id="启动系统容器">启动系统容器</h3>
