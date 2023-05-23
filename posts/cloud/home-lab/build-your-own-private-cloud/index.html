@@ -285,26 +285,26 @@
 <p>曾经包年付费使用某云很多年，一直主要用它存手机照片和视频。最近颈肩酸疼，想起曾经存过一套关于卡通熊练五禽戏的图片，下载时竟然提示图片违规。一头雾水也没搞明白哪里违规了。如果真的是违规图片也就认了。且不说这几年包年的服务费够买几块硬盘的了。就运营商私自扫描用户数据，随时对你说: “不”的卡脖子行为就已经让你彻底明白你的数据还是要掌握在自己的手里是最安全的。</p>
 <p>说干就干，All in One 自托管。</p>
 <h2 id="硬件">硬件</h2>
-<p>我觉得任何硬件都可以，比如闲置不用的笔记本电脑，树莓派之类的。
-看你想运行软件的规模有多大。主要参考点应该是内存，硬盘。CPU 次之。
+<p>我觉得任何硬件都可以，比如闲置不用的笔记本电脑，树莓派之类的。<br>
+看你想运行软件的规模有多大。主要参考点应该是内存，硬盘。CPU 次之。<br>
 家用基本上都是存储密集型，计算密集型的可能性不大。</p>
-<p>我有几个闲置的树莓派。其中，配置最高的是 4GB 版的树莓派 4 。
-先不说树莓派的 CPU 如何吧，内存感觉不够用。起点应该从 8GB 开始。
-因为，我希望这样的组合: code-server + services (一堆可替代云服务的软件集)
-如果把这些软件集部署到树莓派集群的话，真是有些折腾。家用何必这么折腾呢。
+<p>我有几个闲置的树莓派。其中，配置最高的是 4GB 版的树莓派 4 。<br>
+先不说树莓派的 CPU 如何吧，内存感觉不够用。起点应该从 8GB 开始。<br>
+因为，我希望这样的组合: code-server + services (一堆可替代云服务的软件集)<br>
+如果把这些软件集部署到树莓派集群的话，真是有些折腾。家用何必这么折腾呢。<br>
 而且需要考虑耗电量，几个树莓派的耗电量也不轻啊。主要还是折腾。</p>
-<p>这里啰嗦几句树莓派，我是从树莓派 3B+ 起步开始玩的。那时候作为单板机来说，真的是性价比够可以。
+<p>这里啰嗦几句树莓派，我是从树莓派 3B+ 起步开始玩的。那时候作为单板机来说，真的是性价比够可以。<br>
 在Youtube看很多人用树莓派搭建DIY集群， 算是无比诱惑了吧。</p>
 <img src="/assets/build-your-own-private-cloud/raspi-cluster.png" >
-<p>后来，买了4GB 版的树莓派 4。再后来，疫情，价格一天一涨。而且还断货(有价无市)。
-现在再看树莓派，性价比真的不高。也许真的是没有对比就没有伤害吧。
-是的，那就是 <code>Mini PC</code>。
+<p>后来，买了4GB 版的树莓派 4。再后来，疫情，价格一天一涨。而且还断货(有价无市)。<br>
+现在再看树莓派，性价比真的不高。也许真的是没有对比就没有伤害吧。<br>
+是的，那就是 <code>Mini PC</code>。<br>
 同等价位的树莓派可以买一台性价比相当不错的 <code>Mini PC</code>。</p>
-<p>什么是 <code>Mini PC</code>？
+<p>什么是 <code>Mini PC</code>？<br>
 俗称小主机，其实，类似<code>Intel NUC</code>。如果你看过小米最近发布的迷你主机(<code>小贵，性价比不高</code>)。你就知道它是什么东西了。这是一种趋势，以这种趋势发展下去的话，未来家用主机就不会再有什么大机箱主机出现了。不过，它也是有一些弊端，比如，大部分小主机无法升级 CPU，无法升级 GPU，主板都是小主机厂商根据外观自己定制的。如果坏了，只能联系厂商进行维修。不能像大机箱主机那样，坏了换主板，CPU 之类的。但是，内存，硬盘，无线网卡之类的还是可以自行更换的。这个也算是间接被厂商锁定吧。这是我说的弊端。话归如此，如果和笔记本电脑对比呢？不是也一样不能更换 CPU，GPU 之类的嘛，就像 Macbook，你连内存都增设不了。</p>
 <p>什么？你说小主机不能更换 GPU，游戏玩家不会青睐？看看这个呢？</p>
 <img src="/assets/build-your-own-private-cloud/minipc-gpu.png" >
-<p>只是厂家生产的少，你没见识过而已。
+<p>只是厂家生产的少，你没见识过而已。<br>
 总得来说，还是缺乏标准，如果有一个统一的标准的话，未来小主机一定会遍地开花。</p>
 <p>这个是我现在用的小主机。TRIGKEY: <code>Green G3</code></p>
 <img src="/assets/build-your-own-private-cloud/trigkey_green_g3-2.jpg" >
@@ -324,17 +324,17 @@
 <p>亚马逊购买，到手价 1300 RMB左右。直接秒杀现有 8GB 版的树莓派 4。</p>
 <h2 id="操作系统">操作系统</h2>
 <p>所有的软件都在 <code>Docker</code> 容器下运行，所以，这里我用的是 <code>Pop!_OS 22.04</code> ，其他 Linux 发行版也可以。</p>
-<p>Windows 呢？
-其实也可以，但是不推荐。
-Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</code> 运行一个 Linux 虚拟机，然后在这个虚拟机内运行 <code>Docker</code> 容器。
+<p>Windows 呢？<br>
+其实也可以，但是不推荐。<br>
+Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</code> 运行一个 Linux 虚拟机，然后在这个虚拟机内运行 <code>Docker</code> 容器。<br>
 所以，即便 <code>Hyper-V</code> 属于轻量级虚拟机。也是有一定的性能损耗。</p>
 <p>相比较而言，Linux 的虚拟化方案要比 Windows 强不少。这在之后会介绍。</p>
 <h2 id="软件集">软件集</h2>
-<p>如果你在家庭环境运行自托管软件的话，<code>Docker</code> 绝对是最佳的运行时。
-自托管软件，不可避免的要各种折腾，今天喜欢这个软件了。运行一下，不喜欢了，删除。
-使用软件包安装的话，很难不对宿主机系统造成破坏。而且，还要为这些软件提供各种运行时，<code>Java</code>，<code>Python</code>，<code>PHP</code>，<code>Go</code>等等。
+<p>如果你在家庭环境运行自托管软件的话，<code>Docker</code> 绝对是最佳的运行时。<br>
+自托管软件，不可避免的要各种折腾，今天喜欢这个软件了。运行一下，不喜欢了，删除。<br>
+使用软件包安装的话，很难不对宿主机系统造成破坏。而且，还要为这些软件提供各种运行时，<code>Java</code>，<code>Python</code>，<code>PHP</code>，<code>Go</code>等等。<br>
 运行时的版本隔离也是问题。不如 <code>Docker</code> 拉取镜像轻松加愉快。</p>
-<p>我用的是 <code>docker compose</code> 来运行 <code>Docker</code> 容器，而不是 <code>docker</code> 命令。主要是想通过 <code>yaml</code> 文件 + <code>git</code> 进行版本化管理。
+<p>我用的是 <code>docker compose</code> 来运行 <code>Docker</code> 容器，而不是 <code>docker</code> 命令。主要是想通过 <code>yaml</code> 文件 + <code>git</code> 进行版本化管理。<br>
 方便后期调整时，通过一些工具进行自动化部署。</p>
 <p>下面这些软件是我目前正在用的，它并不代表自托管软件的所有清单，GIthub 有一个整理的自托管清单: <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">Awesome-Selfhosted</a></p>
 <h3 id="adguard-home">AdGuard Home</h3>
@@ -361,7 +361,7 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 <h3 id="watchtower">Watchtower</h3>
 <p>没有用户界面，但是，如果用 <code>Docker</code> 自托管软件的话，这个是必装的。它会定时检查镜像的最新版本，然后自动拉取并运行新版本的镜像。省去了手动更新镜像的麻烦。</p>
 <h3 id="备份手机照片和视频">备份手机照片和视频</h3>
-<p>找了很多软件，都不合适。要么提供的功能太多。要么就是运行时太重了。耗费系统资源。比如，<code>Nextcloud</code>就非常重。
+<p>找了很多软件，都不合适。要么提供的功能太多。要么就是运行时太重了。耗费系统资源。比如，<code>Nextcloud</code>就非常重。<br>
 后来使用 <code>Samba</code> + <code>ES文件浏览器</code>的组合。<code>iPhone</code> 和 <code>Android</code> 都支持。</p>
 <h3 id="coder">Coder</h3>
 <img src="/assets/build-your-own-private-cloud/coder.png" >
@@ -369,14 +369,14 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 <h3 id="nginx-proxy-manager">Nginx Proxy Manager</h3>
 <img src="/assets/build-your-own-private-cloud/npm.png" >
 <p>带有用户界面的 <code>Nginx</code> 管理器。用它做所有服务的 <code>Gateway</code>，证书卸载等。还支持自动申请 <code>Let's Encrypt</code> 证书。</p>
-<p>至此，这个算是私有云的第一步吧，宿主 + <code>Docker</code> 运行自托管软件。算是 1.0。
+<p>至此，这个算是私有云的第一步吧，宿主 + <code>Docker</code> 运行自托管软件。算是 1.0。<br>
 唯一不满意的是 <code>Coder</code> 。我希望它看起来像一个独立的工作站，可是，实际上它却不是。因为用 <code>Docker</code> 根本解决不了。我是用 <code>Dockerfile</code> 自构建的 <code>Coder</code>，每次想装新的软件，都要修改 <code>Dockerfile</code> 重新构建镜像。推送，拉取，运行。一顿折腾。而且，用 <code>Coder</code> 运行程序时，启动端口也是一个问题。需要提前规划好自己想用的端口(因为没有独立 <code>IP</code>，我不是说 <code>Docker</code> 给容器分配的 <code>IP</code>，而是在局域网分配的独立 <code>IP</code>)，不像独占系统那样用的自然。因为没有好的方法。直到后来遇见 <code>LXD</code>。</p>
 <h2 id="lxd">LXD</h2>
-<p>原来，在没有好的解决办法之前，一直在错误的用 <code>Docker</code> 。它是一个 <code>Application</code> 级别的容器，而不是系统级别的容器。直到遇见 <code>LXD</code> 之后，才发现原来这个才是自己想要的。系统级别的虚拟化。
+<p>原来，在没有好的解决办法之前，一直在错误的用 <code>Docker</code> 。它是一个 <code>Application</code> 级别的容器，而不是系统级别的容器。直到遇见 <code>LXD</code> 之后，才发现原来这个才是自己想要的。系统级别的虚拟化。<br>
 它共用宿主内核，提供一个完整的操作系统级别的容器隔离。比虚拟机更轻，就和运行一个进程差不多。</p>
-<p>整个安装过程其实并不麻烦。只是在网络模型选择上需要注意一下。
+<p>整个安装过程其实并不麻烦。只是在网络模型选择上需要注意一下。<br>
 我希望的效果是，容器就像局域网真实存在的物理机一样。有自己的独立 <code>IP</code>。可以和局域网的其他主机互通信。</p>
-<p>一开始，我用的是 <code>macvlan</code> ，它可以从 <code>DHCP</code> 那里获取 <code>IP</code>。但是，不能和宿主通信。
+<p>一开始，我用的是 <code>macvlan</code> ，它可以从 <code>DHCP</code> 那里获取 <code>IP</code>。但是，不能和宿主通信。<br>
 后来改成网桥之后，就是我想要的效果了。</p>
 <h3 id="安装-lxd">安装 LXD</h3>
 <p>去官网看文档。几步就完事。</p>
@@ -433,7 +433,7 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 </span></span><span style="display:flex;"><span>$ sudo netplan apply
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>配置就是上面这些，物理网卡是<code>enp2s0</code> 。记得 <code>stp</code> 一定要开，防止网桥那块网络洪泛。
+</div><p>配置就是上面这些，物理网卡是<code>enp2s0</code> 。记得 <code>stp</code> 一定要开，防止网桥那块网络洪泛。<br>
 执行完这些，你的宿主应该是通过网桥来获取 <code>DHCP</code> 分配的 <code>IP</code> 了。</p>
 <h3 id="初始化-lxd">初始化 LXD</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -526,7 +526,7 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 </span></span><span style="display:flex;"><span>cluster: null
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这是 <code>LXD</code> 的初始化过程。
+</div><p>这是 <code>LXD</code> 的初始化过程。<br>
 有几个注意点:</p>
 <ul>
 <li><code>Would you like to create a new local network bridge? (yes/no) [default=yes]: no</code><br>
@@ -535,7 +535,7 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 这个直接填 yes 打开。之后装 UI 用。</li>
 </ul>
 <h3 id="启动系统容器">启动系统容器</h3>
-<p>完成初始化之后，就可以启动系统容器了。这里启动的是 ubuntu。
+<p>完成初始化之后，就可以启动系统容器了。这里启动的是 ubuntu。<br>
 但不限于 ubuntu。其他发行版也是可以的。</p>
 <ul>
 <li><code>CentOS</code></li>
@@ -606,16 +606,16 @@ Windows 在运行 <code>Docker</code> 容器时，是先使用 <code>Hyper-V</co
 </span></span><span style="display:flex;"><span>+-------------+---------+------------------------------+------+-----------+-----------+
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>service</code> 里安装 <code>Docker</code> 用来运行各种自托管软件。<code>workstation</code> 运行 <code>Coder</code>。
+</div><p><code>service</code> 里安装 <code>Docker</code> 用来运行各种自托管软件。<code>workstation</code> 运行 <code>Coder</code>。<br>
 你可以看到，他们都有自己独立的局域网 <code>IP</code>。使用上和真实物理机没有任何区别。</p>
 <h3 id="安装lxdware">安装LXDWARE</h3>
 <p>这是一个 <code>LXD</code> 的管理 UI。你可以用它创建和销毁系统容器。就像使用私有云服务器那样。(最新 edge 版好像自带 UI)</p>
 <img src="/assets/build-your-own-private-cloud/lxdui-1.png" >
 <img src="/assets/build-your-own-private-cloud/lxdui-2.png" >
 <h2 id="总结">总结</h2>
-<p>最大的收获算是 <code>LXD</code> 。又开阔了 Linux 虚拟化的视野。
+<p>最大的收获算是 <code>LXD</code> 。又开阔了 Linux 虚拟化的视野。<br>
 不知道是否有更多的生产级的应用案例。 我想随着关注的人更多，这可能对企业的基础设施产生巨大的冲击，特别是 <code>VM</code>。顺便说一下，<code>LXD</code> 不仅仅可以运行系统容器，也可以运行 <code>VM</code>。</p>
-<p>后续，需要研究一下实时跨主机迁移是怎么回事。这个功能好像 <code>KVM</code> 就可以。没研究过~
+<p>后续，需要研究一下实时跨主机迁移是怎么回事。这个功能好像 <code>KVM</code> 就可以。没研究过~<br>
 据说整个迁移过程是不停机迁移。网络流量也不会中断的那种。挺神秘～哈哈。</p>
 
   </div>
