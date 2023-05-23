@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.110.0">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
   <meta name="apple-mobile-web-app-title" content="Fi.">
@@ -20,8 +20,8 @@
 <meta itemprop="description" content="什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
 可以参考一下官网的介绍。
 如何安装 安装Molecule需要:
- Python&gt;=3.8 Ansible&gt;=2."><meta itemprop="datePublished" content="2022-03-27T21:17:43&#43;09:00" />
-<meta itemprop="dateModified" content="2022-03-27T21:17:43&#43;09:00" />
+Python&gt;=3.8 Ansible&gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。"><meta itemprop="datePublished" content="2022-03-27T21:17:43+09:00" />
+<meta itemprop="dateModified" content="2022-03-27T21:17:43+09:00" />
 <meta itemprop="wordCount" content="957"><meta itemprop="image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/>
 <meta itemprop="keywords" content="Ansible,Molecule," />
 
@@ -32,18 +32,18 @@
 <meta name="twitter:description" content="什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
 可以参考一下官网的介绍。
 如何安装 安装Molecule需要:
- Python&gt;=3.8 Ansible&gt;=2."/>
+Python&gt;=3.8 Ansible&gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。"/>
 
 
 <meta property="og:title" content="使用Molecule测试Ansible Role" />
 <meta property="og:description" content="什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
 可以参考一下官网的介绍。
 如何安装 安装Molecule需要:
- Python&gt;=3.8 Ansible&gt;=2." />
+Python&gt;=3.8 Ansible&gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://failover.fun/posts/devops/test-the-ansible-role-with-molecule/" /><meta property="og:image" content="https://failover.fun/assets/favicon/android-chrome-512x512.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-03-27T21:17:43&#43;09:00" />
-<meta property="article:modified_time" content="2022-03-27T21:17:43&#43;09:00" />
+<meta property="article:published_time" content="2022-03-27T21:17:43+09:00" />
+<meta property="article:modified_time" content="2022-03-27T21:17:43+09:00" />
 
 
 
@@ -93,7 +93,7 @@
       },
       "datePublished": "2022-03-27T21:17:43+09:00",
       "dateModified": "2022-03-27T21:17:43+09:00",
-      "description": "什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。\n可以参考一下官网的介绍。\n如何安装 安装Molecule需要:\n Python\u0026gt;=3.8 Ansible\u0026gt;=2.",
+      "description": "什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。\n可以参考一下官网的介绍。\n如何安装 安装Molecule需要:\nPython\u0026gt;=3.8 Ansible\u0026gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。",
       "inLanguage": "zh-ch",
       "potentialAction": [
         {
@@ -283,236 +283,236 @@
 你可以任意切换你想要的Python版本。</p>
 <h3 id="安装-pyenv">安装 pyenv</h3>
 <p>使用 <a href="https://github.com/pyenv/pyenv-installer">pyenv installer</a> 安装 pyenv</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl https://pyenv.run | bash
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl https://pyenv.run | bash
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以下内容添加到 <code>.bashrc</code>, <code>.zshrc</code></p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># pyenv</span>
-<span style="color:#a90d91">export</span> <span style="color:#000">PATH</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#000">$HOME</span><span style="color:#c41a16">/.pyenv/bin:</span><span style="color:#000">$PATH</span><span style="color:#c41a16">&#34;</span>
-<span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv init -<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
-<span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv init --path<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
-<span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv virtualenv-init -<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#177500"># pyenv</span>
+</span></span><span style="display:flex;"><span><span style="color:#a90d91">export</span> <span style="color:#000">PATH</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#000">$HOME</span><span style="color:#c41a16">/.pyenv/bin:</span><span style="color:#000">$PATH</span><span style="color:#c41a16">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv init -<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv init --path<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span>pyenv virtualenv-init -<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>重载 SHELL</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">exec</span> <span style="color:#000">$SHELL</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a90d91">exec</span> <span style="color:#000">$SHELL</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>确认安装是否成功</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ pyenv
-pyenv 2.2.5
-Usage: pyenv &lt;command&gt; <span style="color:#000">[</span>&lt;args&gt;<span style="color:#000">]</span>
-
-Some useful pyenv commands are:
-   --version   Display the version of pyenv
-   activate    Activate virtual environment
-   commands    List all available pyenv commands
-   deactivate   Deactivate virtual environment
-   doctor      Verify pyenv installation and development tools to build pythons.
-   <span style="color:#a90d91">exec</span>        Run an executable with the selected Python version
-   global      Set or show the global Python version<span style="color:#000">(</span>s<span style="color:#000">)</span>
-   <span style="color:#a90d91">help</span>        Display <span style="color:#a90d91">help</span> <span style="color:#a90d91">for</span> a <span style="color:#a90d91">command</span>
-   hooks       List hook scripts <span style="color:#a90d91">for</span> a given pyenv <span style="color:#a90d91">command</span>
-   init        Configure the shell environment <span style="color:#a90d91">for</span> pyenv
-   install     Install a Python version using python-build
-   <span style="color:#a90d91">local</span>       Set or show the <span style="color:#a90d91">local</span> application-specific Python version<span style="color:#000">(</span>s<span style="color:#000">)</span>
-   prefix      Display prefixes <span style="color:#a90d91">for</span> Python versions
-   rehash      Rehash pyenv shims <span style="color:#000">(</span>run this after installing executables<span style="color:#000">)</span>
-   root        Display the root directory where versions and shims are kept
-   shell       Set or show the shell-specific Python version
-   shims       List existing pyenv shims
-   uninstall   Uninstall a specific Python version
-   version     Show the current Python version<span style="color:#000">(</span>s<span style="color:#000">)</span> and its origin
-   version-file   Detect the file that sets the current pyenv version
-   version-name   Show the current Python version
-   version-origin   Explain how the current Python version is <span style="color:#a90d91">set</span>
-   versions    List all Python versions available to pyenv
-   virtualenv   Create a Python virtualenv using the pyenv-virtualenv plugin
-   virtualenv-delete   Uninstall a specific Python virtualenv
-   virtualenv-init   Configure the shell environment <span style="color:#a90d91">for</span> pyenv-virtualenv
-   virtualenv-prefix   Display real_prefix <span style="color:#a90d91">for</span> a Python virtualenv version
-   virtualenvs   List all Python virtualenvs found in <span style="color:#c41a16">`</span><span style="color:#000">$PYENV_ROOT</span>/versions/*<span style="color:#c41a16">&#39;.
-</span><span style="color:#c41a16">   whence      List all Python versions that contain the given executable
-</span><span style="color:#c41a16">   which       Display the full path to an executable
-</span><span style="color:#c41a16">
-</span><span style="color:#c41a16">See `pyenv help &lt;command&gt;&#39;</span> <span style="color:#a90d91">for</span> information on a specific command.
-For full documentation, see: https://github.com/pyenv/pyenv#readme
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ pyenv
+</span></span><span style="display:flex;"><span>pyenv 2.2.5
+</span></span><span style="display:flex;"><span>Usage: pyenv &lt;command&gt; <span style="color:#000">[</span>&lt;args&gt;<span style="color:#000">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Some useful pyenv commands are:
+</span></span><span style="display:flex;"><span>   --version   Display the version of pyenv
+</span></span><span style="display:flex;"><span>   activate    Activate virtual environment
+</span></span><span style="display:flex;"><span>   commands    List all available pyenv commands
+</span></span><span style="display:flex;"><span>   deactivate   Deactivate virtual environment
+</span></span><span style="display:flex;"><span>   doctor      Verify pyenv installation and development tools to build pythons.
+</span></span><span style="display:flex;"><span>   <span style="color:#a90d91">exec</span>        Run an executable with the selected Python version
+</span></span><span style="display:flex;"><span>   global      Set or show the global Python version<span style="color:#000">(</span>s<span style="color:#000">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a90d91">help</span>        Display <span style="color:#a90d91">help</span> <span style="color:#a90d91">for</span> a <span style="color:#a90d91">command</span>
+</span></span><span style="display:flex;"><span>   hooks       List hook scripts <span style="color:#a90d91">for</span> a given pyenv <span style="color:#a90d91">command</span>
+</span></span><span style="display:flex;"><span>   init        Configure the shell environment <span style="color:#a90d91">for</span> pyenv
+</span></span><span style="display:flex;"><span>   install     Install a Python version using python-build
+</span></span><span style="display:flex;"><span>   <span style="color:#a90d91">local</span>       Set or show the <span style="color:#a90d91">local</span> application-specific Python version<span style="color:#000">(</span>s<span style="color:#000">)</span>
+</span></span><span style="display:flex;"><span>   prefix      Display prefixes <span style="color:#a90d91">for</span> Python versions
+</span></span><span style="display:flex;"><span>   rehash      Rehash pyenv shims <span style="color:#000">(</span>run this after installing executables<span style="color:#000">)</span>
+</span></span><span style="display:flex;"><span>   root        Display the root directory where versions and shims are kept
+</span></span><span style="display:flex;"><span>   shell       Set or show the shell-specific Python version
+</span></span><span style="display:flex;"><span>   shims       List existing pyenv shims
+</span></span><span style="display:flex;"><span>   uninstall   Uninstall a specific Python version
+</span></span><span style="display:flex;"><span>   version     Show the current Python version<span style="color:#000">(</span>s<span style="color:#000">)</span> and its origin
+</span></span><span style="display:flex;"><span>   version-file   Detect the file that sets the current pyenv version
+</span></span><span style="display:flex;"><span>   version-name   Show the current Python version
+</span></span><span style="display:flex;"><span>   version-origin   Explain how the current Python version is <span style="color:#a90d91">set</span>
+</span></span><span style="display:flex;"><span>   versions    List all Python versions available to pyenv
+</span></span><span style="display:flex;"><span>   virtualenv   Create a Python virtualenv using the pyenv-virtualenv plugin
+</span></span><span style="display:flex;"><span>   virtualenv-delete   Uninstall a specific Python virtualenv
+</span></span><span style="display:flex;"><span>   virtualenv-init   Configure the shell environment <span style="color:#a90d91">for</span> pyenv-virtualenv
+</span></span><span style="display:flex;"><span>   virtualenv-prefix   Display real_prefix <span style="color:#a90d91">for</span> a Python virtualenv version
+</span></span><span style="display:flex;"><span>   virtualenvs   List all Python virtualenvs found in <span style="color:#c41a16">`</span><span style="color:#000">$PYENV_ROOT</span>/versions/*<span style="color:#c41a16">&#39;.
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">   whence      List all Python versions that contain the given executable
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">   which       Display the full path to an executable
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">See `pyenv help &lt;command&gt;&#39;</span> <span style="color:#a90d91">for</span> information on a specific command.
+</span></span><span style="display:flex;"><span>For full documentation, see: https://github.com/pyenv/pyenv#readme
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>恭喜你，已经成功安装了<a href="https://github.com/pyenv/pyenv">pyenv</a>。</p>
 <p>安装Python</p>
 <p>在安装Python之前，请先安装构建依赖。<br>
 对于MacOS:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install openssl readline sqlite3 xz zlib
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install openssl readline sqlite3 xz zlib
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>其他系统请参照: <a href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">pyenv suggested build environment</a></p>
 <p>这里安装3.10.4版的Python</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pyenv install 3.10.4
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyenv install 3.10.4
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>对于其他版本的Python，可以使用以下命令来查看。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ pyenv install --list
-Available versions:
-  2.1.3
-  2.2.3
-  2.3.7
-  ... ...
-  3.10.4
-  3.11.0a6
-  3.11-dev
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ pyenv install --list
+</span></span><span style="display:flex;"><span>Available versions:
+</span></span><span style="display:flex;"><span>  2.1.3
+</span></span><span style="display:flex;"><span>  2.2.3
+</span></span><span style="display:flex;"><span>  2.3.7
+</span></span><span style="display:flex;"><span>  ... ...
+</span></span><span style="display:flex;"><span>  3.10.4
+</span></span><span style="display:flex;"><span>  3.11.0a6
+</span></span><span style="display:flex;"><span>  3.11-dev
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装molecule">安装Molecule</h3>
 <p>在安装<a href="https://molecule.readthedocs.io">Molecule</a>之前，请先使用<a href="https://github.com/pyenv/pyenv">pyenv</a>创建虚拟环境。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pyenv virtualenv 3.10.4 ansible
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyenv virtualenv 3.10.4 ansible
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>切换到创建的虚拟环境</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pyenv shell ansible
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyenv shell ansible
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用以下命令会顺带着安装Ansible，所以不用单独再安装了。</p>
 <p>这里请注意一下，由于新版本(&gt;=3.6.0)的<a href="https://molecule.readthedocs.io">Molecule</a>无法使用<code>molecule login</code>命令。<a href="https://github.com/ansible-community/molecule/issues/3462">#3462</a><br>
 所以，这边选择安装3.5.2版本的<a href="https://molecule.readthedocs.io">Molecule</a>。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install <span style="color:#c41a16">&#34;molecule[ansible]==3.5.2&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install <span style="color:#c41a16">&#34;molecule[ansible]==3.5.2&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>确认安装的<a href="https://molecule.readthedocs.io">Molecule</a>和Ansible</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ ansible --version
-ansible <span style="color:#000">[</span>core 2.12.3<span style="color:#000">]</span>
-  config <span style="color:#000">file</span> <span style="color:#000">=</span> None
-  configured module search <span style="color:#000">path</span> <span style="color:#000">=</span> <span style="color:#000">[</span><span style="color:#c41a16">&#39;/Users/failover/.ansible/plugins/modules&#39;</span>, <span style="color:#c41a16">&#39;/usr/share/ansible/plugins/modules&#39;</span><span style="color:#000">]</span>
-  ansible python module <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.pyenv/versions/3.10.4/envs/ansible/lib/python3.10/site-packages/ansible
-  ansible collection <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.ansible/collections:/usr/share/ansible/collections
-  executable <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.pyenv/versions/ansible/bin/ansible
-  python <span style="color:#000">version</span> <span style="color:#000">=</span> 3.10.4 <span style="color:#000">(</span>main, Mar <span style="color:#1c01ce">25</span> 2022, 18:54:07<span style="color:#000">)</span> <span style="color:#000">[</span>Clang 13.1.6 <span style="color:#000">(</span>clang-1316.0.21.2<span style="color:#000">)]</span>
-  jinja <span style="color:#000">version</span> <span style="color:#000">=</span> 3.1.0
-  <span style="color:#000">libyaml</span> <span style="color:#000">=</span> False
-
-<span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ molecule --version
-molecule 3.5.2 using python 3.10
-    ansible:2.12.3
-    delegated:3.5.2 from molecule
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ ansible --version
+</span></span><span style="display:flex;"><span>ansible <span style="color:#000">[</span>core 2.12.3<span style="color:#000">]</span>
+</span></span><span style="display:flex;"><span>  config <span style="color:#000">file</span> <span style="color:#000">=</span> None
+</span></span><span style="display:flex;"><span>  configured module search <span style="color:#000">path</span> <span style="color:#000">=</span> <span style="color:#000">[</span><span style="color:#c41a16">&#39;/Users/failover/.ansible/plugins/modules&#39;</span>, <span style="color:#c41a16">&#39;/usr/share/ansible/plugins/modules&#39;</span><span style="color:#000">]</span>
+</span></span><span style="display:flex;"><span>  ansible python module <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.pyenv/versions/3.10.4/envs/ansible/lib/python3.10/site-packages/ansible
+</span></span><span style="display:flex;"><span>  ansible collection <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.ansible/collections:/usr/share/ansible/collections
+</span></span><span style="display:flex;"><span>  executable <span style="color:#000">location</span> <span style="color:#000">=</span> /Users/failover/.pyenv/versions/ansible/bin/ansible
+</span></span><span style="display:flex;"><span>  python <span style="color:#000">version</span> <span style="color:#000">=</span> 3.10.4 <span style="color:#000">(</span>main, Mar <span style="color:#1c01ce">25</span> 2022, 18:54:07<span style="color:#000">)</span> <span style="color:#000">[</span>Clang 13.1.6 <span style="color:#000">(</span>clang-1316.0.21.2<span style="color:#000">)]</span>
+</span></span><span style="display:flex;"><span>  jinja <span style="color:#000">version</span> <span style="color:#000">=</span> 3.1.0
+</span></span><span style="display:flex;"><span>  <span style="color:#000">libyaml</span> <span style="color:#000">=</span> False
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ molecule --version
+</span></span><span style="display:flex;"><span>molecule 3.5.2 using python 3.10
+</span></span><span style="display:flex;"><span>    ansible:2.12.3
+</span></span><span style="display:flex;"><span>    delegated:3.5.2 from molecule
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装驱动">安装驱动</h3>
 <p>在安装驱动之前，请确保你的系统已经安装了Docker、Vagrant。</p>
@@ -521,52 +521,52 @@ molecule 3.5.2 using python 3.10
 <li><a href="https://www.vagrantup.com/docs/installation">Vagrant</a></li>
 </ul>
 <p>安装Docker驱动</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install <span style="color:#c41a16">&#34;molecule[docker]&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install <span style="color:#c41a16">&#34;molecule[docker]&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>安装Vagrant驱动</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install molecule-vagrant
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install molecule-vagrant
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>再次确认驱动是否安装成功</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ molecule --version
-molecule 3.5.2 using python 3.10
-    ansible:2.12.3
-    delegated:3.5.2 from molecule
-    docker:1.1.0 from molecule_docker requiring collections: community.docker&gt;<span style="color:#000">=</span>1.9.1
-    vagrant:1.0.0 from molecule_vagrant
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜  ~ molecule --version
+</span></span><span style="display:flex;"><span>molecule 3.5.2 using python 3.10
+</span></span><span style="display:flex;"><span>    ansible:2.12.3
+</span></span><span style="display:flex;"><span>    delegated:3.5.2 from molecule
+</span></span><span style="display:flex;"><span>    docker:1.1.0 from molecule_docker requiring collections: community.docker&gt;<span style="color:#000">=</span>1.9.1
+</span></span><span style="display:flex;"><span>    vagrant:1.0.0 from molecule_vagrant
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="常用命令">常用命令</h2>
 <h3 id="创建ansible-role">创建Ansible Role</h3>
 <p>使用Molecule创建Ansible Role，可以生成Ansible Role的目录结构和文件，以及Molecule的目录结构和文件。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">molecule init role my-new-role --driver-name docker
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>molecule init role my-new-role --driver-name docker
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>--driver-name</code> 可以指定驱动:</p>
 <ul>
@@ -576,142 +576,142 @@ molecule 3.5.2 using python 3.10
 <p>对于驱动的选择，推荐使用<code>docker</code>驱动。它占用资源更低，速度更快。<br>
 但是，如果你的role使用了<code>systemd</code>, 那么最好使用<code>vagrant</code>驱动。</p>
 <h3 id="运行ansible-role">运行Ansible Role</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">molecule converge
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>molecule converge
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>它会调用驱动创建instance并运行Ansible Role。</p>
 <h3 id="登录instance">登录instance</h3>
 <p>使用以下命令来登录instance。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">molecule login
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>molecule login
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="销毁instance">销毁instance</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">molecule destroy
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>molecule destroy
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="完整的命令列表">完整的命令列表</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜ molecule
-Usage: molecule <span style="color:#000">[</span>OPTIONS<span style="color:#000">]</span> COMMAND <span style="color:#000">[</span>ARGS<span style="color:#000">]</span>...
-
-  Molecule aids in the development and testing of Ansible roles.
-
-  To <span style="color:#a90d91">enable</span> autocomplete <span style="color:#a90d91">for</span> a supported shell execute <span style="color:#a90d91">command</span> below after replacing SHELL with either bash, zsh, or fish:
-
-      <span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span><span style="color:#000">_MOLECULE_COMPLETE</span><span style="color:#000">=</span>SHELL_source molecule<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
-
-Options:
-  --debug / --no-debug    Enable or disable debug mode. Default is disabled.
-  -v, --verbose           Increase Ansible verbosity level. Default is 0.
-  -c, --base-config TEXT  Path to a base config <span style="color:#000">(</span>can be specified multiple <span style="color:#a90d91">times</span><span style="color:#000">)</span>. If provided, Molecule will first load and deep merge
-                          the configurations in the specified order, and deep merge each scenario<span style="color:#c41a16">&#39;s molecule.yml on top. By default
-</span><span style="color:#c41a16">                          Molecule is looking for &#39;</span>.config/molecule/config.yml<span style="color:#c41a16">&#39; in current VCS repository and if not found it will look in
-</span><span style="color:#c41a16">                          user home. (None).
-</span><span style="color:#c41a16">  -e, --env-file TEXT     The file to read variables from when rendering molecule.yml. (.env.yml)
-</span><span style="color:#c41a16">  --version
-</span><span style="color:#c41a16">  --help                  Show this message and exit.
-</span><span style="color:#c41a16">
-</span><span style="color:#c41a16">Commands:
-</span><span style="color:#c41a16">  check        Use the provisioner to perform a Dry-Run (destroy, dependency, create, prepare, converge).
-</span><span style="color:#c41a16">  cleanup      Use the provisioner to cleanup any changes made to external systems during the stages of testing.
-</span><span style="color:#c41a16">  converge     Use the provisioner to configure instances (dependency, create, prepare converge).
-</span><span style="color:#c41a16">  create       Use the provisioner to start the instances.
-</span><span style="color:#c41a16">  dependency   Manage the role&#39;</span>s dependencies.
-  destroy      Use the provisioner to destroy the instances.
-  drivers      List drivers.
-  idempotence  Use the provisioner to configure the instances and parse the output to determine idempotence.
-  init         Initialize a new role or scenario.
-  lint         Lint the role <span style="color:#000">(</span>dependency, lint<span style="color:#000">)</span>.
-  list         List status of instances.
-  login        Log in to one instance.
-  matrix       List matrix of steps used to <span style="color:#a90d91">test</span> instances.
-  prepare      Use the provisioner to prepare the instances into a particular starting state.
-  reset        Reset molecule temporary folders.
-  side-effect  Use the provisioner to perform side-effects to the instances.
-  syntax       Use the provisioner to syntax check the role.
-  <span style="color:#a90d91">test</span>         Test <span style="color:#000">(</span>dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify,...
-  verify       Run automated tests against instances.
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">(</span>ansible<span style="color:#000">)</span> ➜ molecule
+</span></span><span style="display:flex;"><span>Usage: molecule <span style="color:#000">[</span>OPTIONS<span style="color:#000">]</span> COMMAND <span style="color:#000">[</span>ARGS<span style="color:#000">]</span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Molecule aids in the development and testing of Ansible roles.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  To <span style="color:#a90d91">enable</span> autocomplete <span style="color:#a90d91">for</span> a supported shell execute <span style="color:#a90d91">command</span> below after replacing SHELL with either bash, zsh, or fish:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a90d91">eval</span> <span style="color:#c41a16">&#34;</span><span style="color:#a90d91">$(</span><span style="color:#000">_MOLECULE_COMPLETE</span><span style="color:#000">=</span>SHELL_source molecule<span style="color:#a90d91">)</span><span style="color:#c41a16">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>  --debug / --no-debug    Enable or disable debug mode. Default is disabled.
+</span></span><span style="display:flex;"><span>  -v, --verbose           Increase Ansible verbosity level. Default is 0.
+</span></span><span style="display:flex;"><span>  -c, --base-config TEXT  Path to a base config <span style="color:#000">(</span>can be specified multiple <span style="color:#a90d91">times</span><span style="color:#000">)</span>. If provided, Molecule will first load and deep merge
+</span></span><span style="display:flex;"><span>                          the configurations in the specified order, and deep merge each scenario<span style="color:#c41a16">&#39;s molecule.yml on top. By default
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">                          Molecule is looking for &#39;</span>.config/molecule/config.yml<span style="color:#c41a16">&#39; in current VCS repository and if not found it will look in
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">                          user home. (None).
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  -e, --env-file TEXT     The file to read variables from when rendering molecule.yml. (.env.yml)
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  --version
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  --help                  Show this message and exit.
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">Commands:
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  check        Use the provisioner to perform a Dry-Run (destroy, dependency, create, prepare, converge).
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  cleanup      Use the provisioner to cleanup any changes made to external systems during the stages of testing.
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  converge     Use the provisioner to configure instances (dependency, create, prepare converge).
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  create       Use the provisioner to start the instances.
+</span></span></span><span style="display:flex;"><span><span style="color:#c41a16">  dependency   Manage the role&#39;</span>s dependencies.
+</span></span><span style="display:flex;"><span>  destroy      Use the provisioner to destroy the instances.
+</span></span><span style="display:flex;"><span>  drivers      List drivers.
+</span></span><span style="display:flex;"><span>  idempotence  Use the provisioner to configure the instances and parse the output to determine idempotence.
+</span></span><span style="display:flex;"><span>  init         Initialize a new role or scenario.
+</span></span><span style="display:flex;"><span>  lint         Lint the role <span style="color:#000">(</span>dependency, lint<span style="color:#000">)</span>.
+</span></span><span style="display:flex;"><span>  list         List status of instances.
+</span></span><span style="display:flex;"><span>  login        Log in to one instance.
+</span></span><span style="display:flex;"><span>  matrix       List matrix of steps used to <span style="color:#a90d91">test</span> instances.
+</span></span><span style="display:flex;"><span>  prepare      Use the provisioner to prepare the instances into a particular starting state.
+</span></span><span style="display:flex;"><span>  reset        Reset molecule temporary folders.
+</span></span><span style="display:flex;"><span>  side-effect  Use the provisioner to perform side-effects to the instances.
+</span></span><span style="display:flex;"><span>  syntax       Use the provisioner to syntax check the role.
+</span></span><span style="display:flex;"><span>  <span style="color:#a90d91">test</span>         Test <span style="color:#000">(</span>dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify,...
+</span></span><span style="display:flex;"><span>  verify       Run automated tests against instances.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="molecule的目录结构">Molecule的目录结构</h2>
 <p>Molecule的配置文件在Role的<code>molecule</code>目录中:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">molecule
-└── default
-    ├── converge.yml
-    ├── molecule.yml
-    └── verify.yml
-
-<span style="color:#1c01ce">1</span> directory, <span style="color:#1c01ce">3</span> files
-</code></pre></td></tr></table>
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>molecule
+</span></span><span style="display:flex;"><span>└── default
+</span></span><span style="display:flex;"><span>    ├── converge.yml
+</span></span><span style="display:flex;"><span>    ├── molecule.yml
+</span></span><span style="display:flex;"><span>    └── verify.yml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#1c01ce">1</span> directory, <span style="color:#1c01ce">3</span> files
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>具体如何使用，请参照官方的说明文档: <a href="https://molecule.readthedocs.io/en/latest/getting-started.html">Getting Started Guide</a></p>
 <h2 id="示例">示例</h2>

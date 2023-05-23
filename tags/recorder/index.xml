@@ -15,7 +15,7 @@
       <guid>https://failover.fun/posts/terminal/asciinema/setting-up-private-asciicast-repository/</guid>
       <description>通常，由于企业内部信息安全策略的原因，不允许将asciicast上传到公共仓库中。
 这个时候可以在企业内部搭建私服来解决存储和分享asciicast的需求。
-硬件需求  单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间  安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。</description>
+硬件需求 单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间 安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。</description>
     </item>
     
     <item>
@@ -29,7 +29,7 @@
 选项 选项可以调整播放器的行为。
 t 执行开始播放的时间。默认从头开始播放(t=0)。
 支持格式:
- ss mm:ss hh:mm:ss  autoplay 该选项控制播放器加载时是否自动开始播放。</description>
+ss mm:ss hh:mm:ss autoplay 该选项控制播放器加载时是否自动开始播放。</description>
     </item>
     
     <item>
@@ -43,7 +43,7 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
 使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
 如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。
 配置由[api]、[record]、[play]三段组成。
-[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema.</description>
+[api] 1 2 3 4 5 6 [api] ; API server URL, default: https://asciinema.</description>
     </item>
     
     <item>
@@ -53,8 +53,8 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
       
       <guid>https://failover.fun/posts/terminal/asciinema/usage/</guid>
       <description>asciinema由rec、play、cat、upload、auth5个子命令组成。
-rec子命令  启动录屏，记录终端会话。
-1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。</description>
+rec子命令 启动录屏，记录终端会话。
+1 2 3 4 5 6 7 8 9 10 11 12 13 asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename] 只要输入asciinema rec命令就开始录屏，其他选项都是可选的。</description>
     </item>
     
     <item>
@@ -66,8 +66,8 @@ rec子命令  启动录屏，记录终端会话。
       <description>Asciinema是一个非常有趣的轻量级终端录屏工具。它和其他录屏软件相比的话显著特点就是轻量级。
 正如它的名字asciinema。它使用字符来记录终端的输入和输出。而其他的录屏软件通常存储的是二进制（专有格式或MP4等）视频格式。
 Asciinema由以下几部分组成：
- 一个命令行记录器asciinema 一个分享asciicast的公共仓库 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
- 使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处：</description>
+一个命令行记录器asciinema 一个分享asciicast的公共仓库 一个JavaScript播放器 和视频录制软件相比较的话，Asciinema有以下几个优点：
+使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。 当然，它还有一些不足之处：</description>
     </item>
     
   </channel>

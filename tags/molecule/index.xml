@@ -16,7 +16,7 @@
       <description>什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
 可以参考一下官网的介绍。
 如何安装 安装Molecule需要:
- Python&amp;gt;=3.8 Ansible&amp;gt;=2.</description>
+Python&amp;gt;=3.8 Ansible&amp;gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。</description>
     </item>
     
   </channel>

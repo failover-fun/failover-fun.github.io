@@ -13,9 +13,10 @@
       <pubDate>Wed, 24 May 2023 00:10:01 +0900</pubDate>
       
       <guid>https://failover.fun/posts/cloud/home-lab/build-your-own-private-cloud/</guid>
-      <description>背景  想掌管自己的数据！ 对云端服务产生信任危机！
- 本人日常使用最多的就三类云服务软件。
- 清单类 笔记类 云盘类  依赖度最高的就是云盘类软件。备份个手机照片和视频可是相当的方便。然而，对云服务的信任危机也是由它而起。</description>
+      <description>背景 想掌管自己的数据！ 对云端服务产生信任危机！
+本人日常使用最多的就三类云服务软件。
+清单类 笔记类 云盘类 依赖度最高的就是云盘类软件。备份个手机照片和视频可是相当的方便。然而，对云服务的信任危机也是由它而起。
+曾经包年付费使用某云很多年，一直主要用它存手机照片和视频。最近颈肩酸疼，想起曾经存过一套关于卡通熊练五禽戏的图片，下载时竟然提示图片违规。一头雾水也没搞明白哪里违规了。如果真的是违规图片也就认了。且不说这几年包年的服务费够买几块硬盘的了。就运营商私自扫描用户数据，随时对你说: “不”的卡脖子行为就已经让你彻底明白你的数据还是要掌握在自己的手里是最安全的。</description>
     </item>
     
     <item>
@@ -27,7 +28,7 @@
       <description>什么是Molecule Molecule可以帮助开发人员在本地借助虚拟技术(Vagrant, Docker, Etc.)测试和运行Ansible Role。
 可以参考一下官网的介绍。
 如何安装 安装Molecule需要:
- Python&amp;gt;=3.8 Ansible&amp;gt;=2.</description>
+Python&amp;gt;=3.8 Ansible&amp;gt;=2.8 对于Python环境，推荐使用pyenv。它是一个非常不错的Python多版本管理工具。</description>
     </item>
     
     <item>
@@ -49,7 +50,7 @@ Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也�
       <guid>https://failover.fun/posts/cloud/aws/understanding/</guid>
       <description>最近(因工作需要)，研究了一下AWS。
 主要调查以下两个方向的内容:
- AWS提供哪些服务 如何计费的  想了解AWS，最好的方式就是亲自动手实践和看官方文档。
+AWS提供哪些服务 如何计费的 想了解AWS，最好的方式就是亲自动手实践和看官方文档。
 但是，AWS提供的服务众多，加上复杂的计费模式，有必要简单梳理一下，方便查阅。
 服务 &amp;amp; 计费 AWS提供多达100种服务。当第一次看到AWS Ground Station真是不知所措。卫星通讯📡?</description>
     </item>
@@ -62,7 +63,7 @@ Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也�
       <guid>https://failover.fun/posts/terminal/asciinema/setting-up-private-asciicast-repository/</guid>
       <description>通常，由于企业内部信息安全策略的原因，不允许将asciicast上传到公共仓库中。
 这个时候可以在企业内部搭建私服来解决存储和分享asciicast的需求。
-硬件需求  单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间  安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。</description>
+硬件需求 单核CPU，推荐双核 最低1 GB RAM（带交换分区） 兼容Docker的64位Linux 最小10 GB磁盘空间 安装Asciinema Server唯一受官方支持的方法是Docker。 所以，部署服务器中Docker环境是必须的。</description>
     </item>
     
     <item>
@@ -76,7 +77,7 @@ Homebrew不仅仅适用MacOS平台，在Linux和Windows Subsystem for Linux也�
 选项 选项可以调整播放器的行为。
 t 执行开始播放的时间。默认从头开始播放(t=0)。
 支持格式:
- ss mm:ss hh:mm:ss  autoplay 该选项控制播放器加载时是否自动开始播放。</description>
+ss mm:ss hh:mm:ss autoplay 该选项控制播放器加载时是否自动开始播放。</description>
     </item>
     
     <item>
@@ -90,7 +91,7 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
 使用$ASCIINEMA_CONFIG_HOME更改配置目录的位置。
 如果环境变量设置$XDG_CONFIG_HOME，配置目录的位置将是：$XDG_CONFIG_HOME/asciinema。
 配置由[api]、[record]、[play]三段组成。
-[api]  1 2 3 4 5 6  [api] ; API server URL, default: https://asciinema.</description>
+[api] 1 2 3 4 5 6 [api] ; API server URL, default: https://asciinema.</description>
     </item>
     
     <item>
@@ -100,8 +101,8 @@ t 执行开始播放的时间。默认从头开始播放(t=0)。
       
       <guid>https://failover.fun/posts/terminal/asciinema/usage/</guid>
       <description>asciinema由rec、play、cat、upload、auth5个子命令组成。
-rec子命令  启动录屏，记录终端会话。
-1 2 3 4 5 6 7 8 9 10 11 12 13  asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename]   只要输入asciinema rec命令就开始录屏，其他选项都是可选的。</description>
+rec子命令 启动录屏，记录终端会话。
+1 2 3 4 5 6 7 8 9 10 11 12 13 asciinema rec [-h] [--stdin] [--append] [--raw] [--overwrite] [-c COMMAND] [-e ENV] [-t TITLE] [-i IDLE_TIME_LIMIT] [-y] [-q] [filename] 只要输入asciinema rec命令就开始录屏，其他选项都是可选的。</description>
     </item>
     
     <item>
@@ -113,8 +114,8 @@ rec子命令  启动录屏，记录终端会话。
       <description>Asciinema是一个非常有趣的轻量级终端录屏工具。它和其他录屏软件相比的话显著特点就是轻量级。
 正如它的名字asciinema。它使用字符来记录终端的输入和输出。而其他的录屏软件通常存储的是二进制（专有格式或MP4等）视频格式。
 Asciinema由以下几部分组成：
- 一个命令行记录器asciinema 一个分享asciicast的公共仓库 一个JavaScript播放器  和视频录制软件相比较的话，Asciinema有以下几个优点：
- 使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。  当然，它还有一些不足之处：</description>
+一个命令行记录器asciinema 一个分享asciicast的公共仓库 一个JavaScript播放器 和视频录制软件相比较的话，Asciinema有以下几个优点：
+使用字符存储终端记录，存储的文件非常小。 可以在本地回放录屏内容。 可以复制回放的内容，通常的录屏软件都做不到这一点。 可以在博客、社交平台等嵌入播放器回放录屏内容。 当然，它还有一些不足之处：</description>
     </item>
     
   </channel>
